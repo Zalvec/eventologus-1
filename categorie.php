@@ -8,3 +8,5 @@ if (!isset($_SESSION["user"])){
 }
 
 print LoadTemplate("catpagina");
+
+print LoadTemplate("basic_footer");

@@ -3,7 +3,6 @@ require_once "autoload.php";
 
 $formname = $_POST["formname"];
 $buttonvalue = $_POST['loginbutton'];
-var_dump($_POST);
 if ( $buttonvalue == "Log in" )
 {
     //gebruiker opzoeken ahv zijn login (e-mail)
