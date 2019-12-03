@@ -6,7 +6,13 @@ if (!isset($_SESSION["user"])){
 } else{
     print LoadTemplate("user_header");
 }
-
+?>
+<main class="container">
+    <?php
 print LoadTemplate("catpagina");
 
+print LoadTemplate("categorie");
+
 print LoadTemplate("basic_footer");
+    ?>
+</main>
