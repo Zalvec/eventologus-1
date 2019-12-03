@@ -1,0 +1,369 @@
+/* CSS bij eventologus */
+@import"reset.css";
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700&display=swap');
+/* Algemene stijlen------------------------------------------------------------------------------------------------------------------------------------------------------ */
+
+html{
+    min-height: 100%;
+    position: relative;
+}
+
+body{
+    font: 100%/1.4 #222;
+    position: static;
+    font-family: "Raleway" ;
+}
+
+
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header & nav stijlen------------------------------------------------------------------------------------------------------------------------------------------------------ */
+header{
+    min-height: 100px;
+    background-image: url(../images/shutterstock_538256848.jpg);
+    background-position: 0 -150px;
+}
+
+#header{
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+#header h2{
+    color: #CBDEF4;
+    margin-left: 2em;
+    font-size: 2rem;
+    background: rgba(71, 100, 132, 0.8);
+    padding: .2em;
+    border-radius: 5px;
+}
+
+header a{text-decoration: none;}
+
+nav#mainnav{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav#mainnav ul{
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav#mainnav ul li a{
+    color: #444;
+    padding: 1em;
+    background: #CBDEF4;
+    margin: 1em;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 500ms all;
+}
+
+nav#mainnav ul li a:hover{
+    background: #5A6A83;
+    color: #cbdef4;
+}
+
+#actievepagina{
+    background: #5A6A83;
+    color: #cbdef4;
+}
+
+/* Main stijlen------------------------------------------------------------------------------------------------------------------------------------------------------ */
+
+main h2{
+    text-align: center;
+    margin: 1em 0;
+    font-size: 1.4rem;
+}
+
+
+
+.contcontainer{
+    background: rgb(71, 100, 132);
+    min-height: 100px;
+    margin: 0 auto;
+    margin: 2em 0;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.beheer{flex-direction: row;}
+
+.titel h2{
+    color: #cbdef4;
+    margin: .2em;
+    text-align: left;
+}
+
+.undertitle{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.content{
+    flex-grow: 1;
+    display: flex;
+    width: 300px;
+}
+
+.content img{
+    width: 150px;
+    height: 150px;
+    margin: .5em;
+}
+
+.beschrijving{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #FFF;
+    margin: .2em;
+    margin-left: 0;
+    border-radius: 3px;
+}
+
+.datum{
+    margin-top: .8em;
+    color: red;
+    font-weight: 500;
+    text-align: center;
+}
+
+
+.beschrijving h2{
+    margin: 0;
+    margin-top: .2em;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+
+.locatie{
+    text-align: center;
+    font-style: italic;
+    padding-top: .2em;
+}
+
+.center{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tickets{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: .8em;
+}
+
+#laatste{
+    margin: 1.5em 0;
+}
+
+/* Login stijlen------------------------------------------------------------------------------------------------------------------------------------------------------ */
+
+.formulier{
+    min-height: 400px;
+    margin: 1em 0;
+}
+
+.form{
+    margin: auto;
+    background: white;
+    padding: 3em;
+    border-radius: 5px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form p{
+    margin-top: 1em;
+}
+
+.invul{
+    margin: 1em 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.invul label{margin-bottom: .5em;}
+
+label{
+    display: inline-block;
+    width: 100px;
+}
+
+input{
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type="submit"]{
+    background: #CBDEF4;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover{
+    border: 1px solid #5A6A83;
+}
+
+/* Categorieën stijlen------------------------------------------------------------------------------------------------------------------------------------------------------ */
+
+.categorieën_list{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.categorieën_list li{
+    flex-grow: 1;
+    text-align: center;
+}
+
+.categorieën_list a{
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 1.5em;
+    transition: border 500ms;
+}
+
+.categorieën_list a:hover{
+    border-bottom: 1px solid #5A6A83;
+}
+
+.categorieën_list{
+    display: flex;
+}
+
+/* Beheer stijlen------------------------------------------------------------------------------------------------------------------------------------------------------ */
+
+.afbeelding{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1em;
+}
+
+.afbeelding img{
+    border-radius: 5px;
+}
+
+.verwijder{
+    background: orangered;
+    padding: 1em;
+    border-radius: 4px;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    margin-top: 1em;
+    text-align: center;
+    transition: background 500ms;
+}
+
+.verwijder:hover{ background: darkred; }
+
+.wijzig{ width: 100%; }
+
+.wijzigform{ padding-left: 9em;
+}
+
+.wijzigform label{ color: #FFFFFF; }
+
+.wijzigform input{
+    width: 60%;
+    border: 1px solid #5A6A83;
+}
+
+.button button{
+    margin-left: 9em;
+    margin-bottom: 1em;
+    padding: 1em;
+    border: none;
+    background: lightgreen;
+    border-radius: 5px;
+    color: #5A6A83;
+    cursor: pointer;
+    transition: background 500ms ;
+}
+
+.button button:hover{ background: darkgreen; }
+
+/* Contact stijlen------------------------------------------------------------------------------------------------------------------------------------------------------ */
+
+
+.contactform{
+    width: 40%;
+    margin: 0 auto;
+    padding: 1em 0;
+}
+
+.contactform h1{
+    font-size: 1.5rem;
+    color: #CBDEF4;
+    text-align: center;
+    font-weight: 600;
+}
+
+.contactform p{
+    text-align: center;
+    margin: .5em 0;
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    font-weight: 200;
+}
+
+.contactform .invul label{
+    color: white;
+}
+
+.contactform .invul input{
+    width: 100%;
+}
+
+.contactform .invul textarea{
+    border: none;
+    border-radius: 4px;
+    max-width: 100%;
+}
+
+.contactform .button button{
+    margin: 0;
+    width: 100%;
+}
+
+/* Footer stijlen------------------------------------------------------------------------------------------------------------------------------------------------------ */
+
+footer{
+    min-height: 90px;
+    background: #8CA2B5;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+footer p{
+    padding: .5em 0;
+}
+
