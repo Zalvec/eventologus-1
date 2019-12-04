@@ -13,6 +13,6 @@ print LoadTemplate("catpagina");
 
 print LoadTemplate("categorie");
 
-print LoadTemplate("basic_footer");
     ?>
 </main>
+<?php print LoadTemplate("basic_footer"); ?>

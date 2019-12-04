@@ -10,7 +10,7 @@ if (!isset($_SESSION["user"])){
 ?>
 <body>
     <main class="container">
-        <section class="contcontainer">
+        <section class="contcontainerform">
             <section class="contactform">
                 <h1>Stel ons een vraag</h1>
                 <p>Wil jij ons contacteren? Vul het onderstaande formulier in en wij antwoorden zo snel mogelijk.</p>

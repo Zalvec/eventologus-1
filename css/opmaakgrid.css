@@ -1,0 +1,277 @@
+/* CSS bij eventologus */
+@import"reset.css";
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700&display=swap');
+
+html{
+    min-height: 100%;
+    position: relative;
+    zoom: 180%;
+}
+
+body{
+    font: 100%/1.4;
+    color: #5A6A83;
+    position: static;
+    font-family: "Raleway" ;
+}
+
+main{padding-bottom: 120px;}
+
+.container{
+    max-width: 95%;
+    margin: 0 auto;
+}
+
+/* Catnav stijlen------------------------------------------------------------------------------------------------------------------------------------------------------ */
+
+.categorieën_list{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.categorieën_list li{
+    display: block;
+    text-align: center;
+}
+
+.categorieën_list li a{
+    text-decoration: none;
+    padding: 1.5em 0;
+    color: #5A6A83;
+    display: block;
+}
+
+.categorieën_list li a:hover{
+    border-bottom: 1px solid #5A6A83;
+}
+
+@media screen and (min-width: 1000px){
+    html{zoom: 100%;}
+
+    .categorieën_list{display: flex;}
+
+    .categorieën_list li{flex-grow: 1;}
+
+    .categorieën_list li a{padding: 1.5em 0;}
+}
+
+/* Nav stijlen -------------------------------------------------------------------------------------- */
+
+header{
+    min-height: 100px;
+    background-image: url(../images/shutterstock_538256848.jpg);
+    background-position: 0 -150px;
+}
+
+#header{
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#header h2{
+    color: #CBDEF4;
+    font-size: 2rem;
+    background: rgba(71, 100, 132, 0.8);
+    padding: .2em;
+    border-radius: 5px;
+    margin-top: .5em;
+}
+
+header a{
+    text-decoration: none;
+    display: block;
+}
+
+nav#mainnav{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+nav#mainnav ul{
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav#mainnav ul li a{
+    color: #444;
+    padding: 1em;
+    background: #CBDEF4;
+    margin: 1em;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 500ms all;
+}
+
+nav#mainnav ul li a:hover{
+    background: #5A6A83;
+    color: #cbdef4;
+}
+
+#actievepagina{
+    background: #5A6A83;
+    color: #cbdef4;
+}
+
+@media screen and (min-width: 1000px) {
+    #header{
+        flex-direction: row;
+    }
+
+    nav#mainnav{
+        justify-content: flex-end;
+    }
+
+    #header h2{ margin: 0; }
+}
+
+/* Main stijlen -------------------------------------------------------------------------------------- */
+
+main h2{
+    text-align: center;
+}
+
+.titel{
+    font-size: 1.3rem;
+    margin: 1.2em 0 .8em 0;
+}
+
+.undertitle{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-columns: 1px;
+    border: 1px solid #CBDEF4;
+    border-radius: 5px;
+    padding: .5em 0;
+    grid-row-gap: 1em;
+}
+
+.content a img{
+    margin: 0 auto;
+}
+
+.maintitle{
+    font-size: 1.8rem;
+    font-weight: 700;
+    padding: .8em 0 .5em 0;
+}
+
+.center h2{
+    font-size: 1.5rem;
+}
+
+.center{
+    text-align: center;
+}
+
+.datum{color: orangered;}
+
+.datum, .tickets{
+    text-align: center;
+    padding: 1em 0;
+}
+
+.beschrijving{ border-bottom: 1px solid #CBDEF4; }
+
+
+@media screen and (min-width: 1000px){
+    .undertitle{ grid-template-columns: repeat(3,1fr); }
+    .beschrijving{border-bottom: none;}
+    .content a img{width: 250px;}
+}
+
+@media screen and (min-width: 1030px){
+    .content a img{width: 300px;}
+}
+
+.button button{
+    margin-left: 9em;
+    margin-bottom: 1em;
+    padding: 1em;
+    border: none;
+    background: lightgreen;
+    border-radius: 5px;
+    color: #5A6A83;
+    cursor: pointer;
+    transition: background 500ms ;
+}
+
+.button button:hover{
+    background: palegreen;
+    border: forestgreen 1px solid;
+}
+
+/* Contact stijlen -------------------------------------------------------------------------------------- */
+
+.contactform h1{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: .5em;
+    font-weight: 700;
+}
+
+.contcontainerform{
+    display: flex;
+    align-items: center;
+}
+
+.contactform p{
+    text-align: center;
+    margin-bottom: 1em;
+    font-weight: 200;
+    font-size: 1.1rem;
+}
+
+.contactform{
+    width: 100%;
+    margin: 0 auto;
+    padding: 1em 0;
+}
+
+.contactform .invul{
+    margin-top: 1em;
+}
+
+.contactform .invul input,
+.contactform .invul textarea
+{
+    min-width: 100%;
+    max-width: 100%;
+    border: 1px solid #8CA2B5;
+    border-radius: 5px;
+    min-height: 2.5em;
+}
+
+.contactform .button button{
+    margin: 2em 0;
+    width: 100%;
+}
+
+@media screen and (min-width: 700px){
+
+    .contcontainerform{
+        width: 40%;
+        margin: auto auto;
+        height: 600px;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    .contcontainerform{ width: 40%;}
+}
+
+/* Footer stijlen -------------------------------------------------------------------------------------- */
+
+footer{
+    background: #CBDEF4;
+    padding: 1em;
+    min-height: 100px;
+    margin-top: 1em;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
