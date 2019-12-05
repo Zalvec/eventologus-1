@@ -23,7 +23,10 @@ if ( $formname == "registration_form" AND $_POST['registerbutton'] == "Registree
 
     $sql = "INSERT INTO $tablename SET " .
         " use_organisator='" . htmlentities($_POST['use_organisator'], ENT_QUOTES) . "' , " .
+        " use_voornaam='" . $_POST['use_voornaam'] . "' , " .
+        " use_achternaam='" . $_POST['use_achternaam'] . "' , " .
         " use_email='" . $_POST['use_email'] . "' , " .
+        " use_geboortedatum='" . $_POST['use_geboortedatum'] . "' , " .
         " use_wachtwoord='" . $password_encrypted . "'  " ;
 
     if ( ExecuteSQL($sql) ){ print "Bedankt voor uw registratie!" ;

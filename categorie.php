@@ -9,7 +9,7 @@ if (!isset($_SESSION["user"])){
 ?>
 <main class="container">
     <?php
-print LoadTemplate("catpagina");
+print LoadTemplate("catnav");
 
 print LoadTemplate("categorie");
 
