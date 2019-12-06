@@ -5,7 +5,6 @@
 html{
     min-height: 100%;
     position: relative;
-    zoom: 180%;
 }
 
 body{
@@ -18,7 +17,7 @@ body{
 main{padding-bottom: 110px;}
 
 .container{
-    max-width: 95%;
+    max-width: 80%;
     margin: 0 auto;
 }
 
@@ -93,17 +92,19 @@ nav#mainnav{
 
 nav#mainnav ul{
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    flex-direction: column;
 }
 
 nav#mainnav ul li a{
     color: #444;
-    padding: 1em;
+    padding: .5em;
     background: #CBDEF4;
-    margin: 1em;
+    margin: .5em;
     border-radius: 5px;
     text-decoration: none;
     transition: 500ms all;
+    text-align: center;
 }
 
 nav#mainnav ul li a:hover{
@@ -124,6 +125,14 @@ nav#mainnav ul li a:hover{
     nav#mainnav{
         justify-content: flex-end;
     }
+
+    nav#mainnav ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    nav#mainnav ul li a{padding: 1em;}
 
     #header h2{ margin: 0; }
 }
@@ -149,8 +158,19 @@ main h2{
     grid-row-gap: 1em;
 }
 
+.contcontainer{
+    margin-top: 1em;
+}
+
+h2{
+    font-size: 1.5rem;
+    margin-top: 1em;
+}
+
 .content a img{
     margin: 0 auto;
+    width: 80%;
+    height: 40%;
 }
 
 .maintitle{
@@ -180,11 +200,17 @@ main h2{
 @media screen and (min-width: 1000px){
     .undertitle{ grid-template-columns: repeat(3,1fr); }
     .beschrijving{border-bottom: none;}
-    .content a img{width: 250px;}
+    .content a img{
+        width: 250px;
+        height: 250px;
+    }
 }
 
 @media screen and (min-width: 1030px){
-    .content a img{width: 300px;}
+    .content a img{
+        width: 250px;
+        height: 200px;
+    }
 }
 
 .button button{
@@ -349,12 +375,25 @@ main h2{
     min-height: 200px;
 }
 
+
+
+#loc_straat{width: 70%;}
+#loc_nr{width: 14%;}
+#loc_pos_id{width: 14%;}
+
+#eve_minprijs,
+#eve_maxprijs,
+#eve_begindatum,
+#eve_einddatum,
+#eve_opening,
+#eve_sluiting{width: 49%;}
+
+
 @media screen and (min-width: 1000px) {
     .beheer{
         display: flex;
         flex-direction: row;
         background: #CBDEF4;
-        margin: 2em 0;
         border-radius: 5px;
     }
     .afbeelding,
