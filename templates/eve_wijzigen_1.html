@@ -1,0 +1,18 @@
+<section class="contcontainer beheer">
+    <section class="afbeelding">
+        <img src="images/@@eve_image@@.jpg" alt="image">
+        <a class="verwijder" href="#">Verwijder evenement</a>
+    </section>
+    <section class="wijzig">
+        <form action="lib/eve_wijzig.php" class="wijzigform">
+            <div class="invul">
+                <label for="eve_naam">Naam</label>
+                <input type="text" name="eve_naam" id="eve_naam" placeholder="Naam...">
+            </div>
+            <div class="invul">
+                <fieldset>
+                    <legend>Locatie</legend>
+                    <label for="loc_straat" hidden>Straat</label>
+                    <input id="loc_straat" placeholder="Straat..." name="straat">
+                    <label for="loc_nr" hidden>Nummer</label>
+                    <input id="loc_nr" placeholder="Huisnr..." name="nummer">

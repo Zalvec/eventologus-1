@@ -8,7 +8,11 @@ function BasicHead()
 /* Deze functie laadt de opgegeven template */
 function LoadTemplate( $name )
 {
-    return file_get_contents("templates/$name.html");
+    if (file_exists("templates/$name.html")) {
+        return file_get_contents("templates/$name.html");
+    } else{
+        return file_get_contents("templates/$name.php");
+    }
 }
 
 /* Deze functie voegt data en template samen en print het resultaat */
@@ -22,7 +26,6 @@ function ReplaceContent( $data, $template_html )
         {
             $content = str_replace("@@$field@@", $value, $content);
         }
-
         print $content;
     }
 }

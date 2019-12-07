@@ -379,7 +379,10 @@ h2{
 
 #loc_straat{width: 70%;}
 #loc_nr{width: 14%;}
-#loc_pos_id{width: 14%;}
+#loc_pos_id{
+    width: 14%;
+    height: 37px;
+}
 
 #eve_minprijs,
 #eve_maxprijs,
@@ -387,7 +390,10 @@ h2{
 #eve_einddatum,
 #eve_opening,
 #eve_sluiting{width: 49%;}
-
+.geen_eve{
+    margin: 1em 0;
+    font-size: 1.2rem;
+}
 
 @media screen and (min-width: 1000px) {
     .beheer{

@@ -19,15 +19,17 @@ if (!isset($_SESSION["user"])){
                     where use_email = '". $_SESSION["user"]["use_email"]."'";
             $data = GetData($sql);
             $template = LoadTemplate("eve_uwevenementen");
-            ReplaceContent($data, $template);
-            if (empty($data)){
-                print "<h2> U heeft geen evenementen. </h2>";
+            if (!empty($data)){
+                ReplaceContent($data, $template);
+            } else {
+                print "<h2 class='geen_eve'> U heeft geen evenementen. </h2>";
             }
             ?>
         </section>
     </section>
     <?php
     print LoadTemplate("eve_aanmaken");
-    print LoadTemplate("basic_footer");
     ?>
 </main>
+<?php print LoadTemplate("basic_footer"); ?>
+</html>
