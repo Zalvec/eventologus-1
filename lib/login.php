@@ -20,7 +20,7 @@ if ( $buttonvalue == "Log in" )
         print "Welkom, U bent ingelogd!";
         session_start();
         $_SESSION['user'] = $row;
-        echo "<meta http-equiv='refresh' content='2;../index.php'>";
+        echo "<meta http-equiv='refresh' content='1;../index.php'>";
     }
     else
     {

@@ -30,7 +30,7 @@ if ( $formname == "registration_form" AND $_POST['registerbutton'] == "Registree
         " use_wachtwoord='" . $password_encrypted . "'  " ;
 
     if ( ExecuteSQL($sql) ){ print "Bedankt voor uw registratie!" ;
-    echo "<meta http-equiv='refresh' content='2;../index.php'>";}
+    echo "<meta http-equiv='refresh' content='1;../index.php'>";}
     else print "Sorry, er liep iets fout. Uw gegevens werden niet goed opgeslagen" ;
 }
 ?>
