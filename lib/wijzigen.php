@@ -25,17 +25,20 @@ if ( $formname == "eve_wijzig_form" )
         " eve_beschrijving='" . $_POST['eve_beschrijving'] . "' 
         where eve_id='" . $_POST['eve_id'] . "'";
 
-    $sql_loc = "UPDATE $tablename_loc SET " .
+    $sql_loc = "UPDATE $tablename_loc, $tablename_eve SET " .
         " loc_straat='" . $_POST['loc_straat']. "' , " .
         " loc_nr='" . $_POST['loc_nr'] . "' , " .
         " loc_pos_id='" . $_POST['loc_pos_id'] . "' , " .
         " loc_gebouw='" . $_POST['loc_gebouw'] . "' 
         where eve_id='" . $_POST['loc_id'] . "'";
 
-    print $sql_eve;
-    print $sql_loc;
+    GetData($sql_eve);
+    GetData($sql_loc);
 
-    if ( ExecuteSQL($sql) ){
+    print "$sql_eve </br> ";
+    print "$sql_loc </br> ";
+
+    if ( ExecuteSQL($sql_eve) and ExecuteSQL($sql_loc)){
         $_SESSION['msg'] = 'Uw evenement is gewijzigd!' ;
         //echo "<meta http-equiv='refresh' content='1;../index.php'>";
         header('Location: ../index.php');

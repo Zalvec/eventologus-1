@@ -9,7 +9,7 @@ if (!isset($_SESSION["user"])){
 }
 ?>
 <main class="container">
-    <h2>Uw evenementen</h2>
+    <h2 class="maintitle">Uw evenementen</h2>
     <section class="contcontainer">
         <section class="undertitle">
             <?php
@@ -23,7 +23,7 @@ if (!isset($_SESSION["user"])){
             if (!empty($data)){
                 ReplaceContent($data, $template);
             } else {
-                print "<h2 class='geen_eve'> U heeft geen evenementen. </h2>";
+                print "<h2 class='geen_eve maintitle'> U heeft geen evenementen. </h2>";
             }
             ?>
         </section>

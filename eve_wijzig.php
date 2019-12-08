@@ -7,6 +7,9 @@ if (!isset($_SESSION["user"])){
 } else{
     print LoadTemplate("user_header");
 }
+foreach ($_GET as $key => $value){
+}
+
 ?>
 
 <main class="container">
@@ -15,20 +18,23 @@ if (!isset($_SESSION["user"])){
             inner join user u on evenement.eve_use_id = u.use_id
             inner join locatie l on evenement.eve_loc_id = l.loc_id
             inner join postcode p on l.loc_pos_id = p.pos_id
-            where use_email = '". $_SESSION["user"]["use_email"]."'";
-        print LoadTemplate('eve_wijzigen_1');
+            where eve_id = '". $key."'";
+        $data = GetData($eve_user);
+        $template = LoadTemplate('eve_wijzigen_1');
+        ReplaceContent($data, $template);
     ?>
     <select name="loc_pos_id" id='loc_pos_id'>
         <?php
         $sql = "select pos_id, pos_code, pos_gemeente from postcode order by pos_code";
-        $data = GetData($sql);
-        foreach ($data as $array){
+        $data_pos = GetData($sql);
+        foreach ($data_pos as $array){
             $option = "$array[pos_code], $array[pos_gemeente]";
             echo "<option value='$array[pos_id]'>$option</option>";}
         ?>
     </select>
     <?php
-    print LoadTemplate('eve_wijzigen_2');
+    $template = LoadTemplate('eve_wijzigen_2');
+    ReplaceContent($data, $template);
     print LoadTemplate("basic_footer");
     ?>
 </main>
