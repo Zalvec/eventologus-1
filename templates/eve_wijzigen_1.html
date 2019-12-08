@@ -4,7 +4,12 @@
         <a class="verwijder" href="#">Verwijder evenement</a>
     </section>
     <section class="wijzig">
-        <form action="lib/eve_wijzig.php" class="wijzigform">
+        <form method="post" action="lib/wijzigen.php"  class="wijzigform">
+            <input type="hidden" id="formname" name="formname" value="eve_wijzig_form">
+            <input type="hidden" id="tablename_eve" name="tablename_eve" value="evenement">
+            <input type="hidden" id="tablename_loc" name="tablename_loc" value="locatie">
+            <input type="hidden" id="eve_id" name="eve_id" value="@@eve_id@@">
+            <input type="hidden" id="loc_id" name="loc_id" value="@@loc_id@@">
             <div class="invul">
                 <label for="eve_naam">Naam</label>
                 <input type="text" name="eve_naam" id="eve_naam" placeholder="Naam...">
@@ -13,6 +18,6 @@
                 <fieldset>
                     <legend>Locatie</legend>
                     <label for="loc_straat" hidden>Straat</label>
-                    <input id="loc_straat" placeholder="Straat..." name="straat">
+                    <input id="loc_straat" placeholder="Straat..." name="loc_straat">
                     <label for="loc_nr" hidden>Nummer</label>
-                    <input id="loc_nr" placeholder="Huisnr..." name="nummer">
+                    <input id="loc_nr" placeholder="Huisnr..." name="loc_nr">

@@ -42,3 +42,4 @@ function ReplaceContentRow( $row, $template_html )
 
         print $content;
 }
+

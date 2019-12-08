@@ -29,8 +29,13 @@ if ( $formname == "registration_form" AND $_POST['registerbutton'] == "Registree
         " use_geboortedatum='" . $_POST['use_geboortedatum'] . "' , " .
         " use_wachtwoord='" . $password_encrypted . "'  " ;
 
-    if ( ExecuteSQL($sql) ){ print "Bedankt voor uw registratie!" ;
-    echo "<meta http-equiv='refresh' content='1;../index.php'>";}
-    else print "Sorry, er liep iets fout. Uw gegevens werden niet goed opgeslagen" ;
+    if ( ExecuteSQL($sql) ){
+        $_SESSION['msg'] = "Bedankt voor uw registratie!" ;
+        header('Location: ../index.php');
+    }
+    else {
+        $_SESSION['msg'] = print "Sorry, er liep iets fout. Uw gegevens werden niet goed opgeslagen";
+        header('Location: ../index.php');
+    };
 }
 ?>

@@ -17,14 +17,15 @@ if ( $buttonvalue == "Log in" )
 
     if ( $login_ok )
     {
-        print "Welkom, U bent ingelogd!";
+        $_SESSION['msg'] = "Welkom, U bent ingelogd!";
         session_start();
+        header('Location: ../index.php');
         $_SESSION['user'] = $row;
-        echo "<meta http-equiv='refresh' content='1;../index.php'>";
     }
     else
     {
-        print "Sorry! Verkeerde login of wachtwoord!";
+        $_SESSION['msg'] = "Sorry! Verkeerde login of wachtwoord!";
+        header('Location: ../index.php');
     }
 }
 ?>
