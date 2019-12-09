@@ -25,7 +25,7 @@ if ( $buttonvalue == "Log in" )
     else
     {
         $_SESSION['msg'] = "Sorry! Verkeerde login of wachtwoord!";
-        header('Location: ../index.php');
+        header('Location: ../login.php');
     }
 }
 ?>
