@@ -284,7 +284,7 @@ h2{
 .contactform .button button{
     margin: 2em 0;
     width: 100%;
-    padding: 10px 0;
+    height: 30px;
 }
 
 @media screen and (min-width: 700px){
@@ -331,7 +331,7 @@ h2{
     cursor: pointer;
     border-radius: 5px;
     background: white;
-    padding: 10px 0;
+    height: 30px;
 }
 
 @media screen and (min-width: 1000px) {
@@ -384,6 +384,7 @@ h2{
 }
 
 .invul textarea{
+    min-width: 100%;
     max-width: 100%;
     min-height: 200px;
 }
