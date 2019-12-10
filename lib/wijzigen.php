@@ -6,13 +6,9 @@ $tablename_loc = $_POST["tablename_loc"];
 $tablename_eve = $_POST["tablename_eve"];
 $pkey = $_POST["pkey"];
 
-var_dump($_POST);
 
 if ( $formname == "eve_wijzig_form" )
 {
-    //controle of gebruiker al bestaat
-    $sql = "SELECT * FROM user WHERE use_email='" . $_POST['eve_id'] . "' ";
-    $data = GetData($sql);
 
     $sql_eve = "UPDATE $tablename_eve SET " .
         " eve_naam='" . htmlentities($_POST['eve_naam'], ENT_QUOTES) . "' , " .
@@ -32,20 +28,15 @@ if ( $formname == "eve_wijzig_form" )
         " loc_gebouw='" . $_POST['loc_gebouw'] . "' 
         where eve_id='" . $_POST['loc_id'] . "'";
 
-    GetData($sql_eve);
-    GetData($sql_loc);
-
-    print "$sql_eve </br> ";
-    print "$sql_loc </br> ";
 
     if ( ExecuteSQL($sql_eve) and ExecuteSQL($sql_loc)){
         $_SESSION['msg'] = 'Uw evenement is gewijzigd!' ;
         //echo "<meta http-equiv='refresh' content='1;../index.php'>";
-        header('Location: ../index.php');
+        header('Location: ../eve_wijzig.php');
         }
     else {
         $_SESSION['msg'] = "Sorry, er liep iets fout. De gegevens werden niet goed opgeslagen" ;
-        header('Location: ../index.php');
+        header('Location: ../eve_wijzig.php');
     }
 }
 ?>

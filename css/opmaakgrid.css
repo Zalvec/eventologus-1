@@ -1,6 +1,7 @@
 /* CSS bij eventologus */
 @import"reset.css";
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700&display=swap');
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css";
 
 html{
     min-height: 100%;
@@ -55,7 +56,7 @@ main{padding-bottom: 110px;}
     .categorieën_list li a{padding: 1.5em 0;}
 }
 
-/* Catnav stijlen------------------------------------------------------------------------------------------------------------------------------------------------------ */
+/* Messages stijlen------------------------------------------------------------------------------------------------------------------------------------------------------ */
 
 div.message{
     background: #5A6A83;
@@ -208,6 +209,7 @@ h2{
 .beschrijving{ border-bottom: 1px solid #CBDEF4; }
 
 
+
 @media screen and (min-width: 1000px){
     .undertitle{ grid-template-columns: repeat(3,1fr); }
     .beschrijving{border-bottom: none;}
@@ -240,6 +242,62 @@ h2{
     background: palegreen;
     border: forestgreen 1px solid;
 }
+
+/* Detail stijlen------------------------------------------------------------------------------------------------------------------------------------------------------ */
+
+.detail{
+    padding: 0;
+}
+
+.detail img{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.detail h1{
+    text-align: center;
+}
+
+
+.detail p{
+    padding: 1em;
+    line-height: 25px;
+    text-align: center;
+}
+
+.detail p:first-of-type{ padding: 0; }
+
+.date{padding: 0}
+
+.adres {
+    margin: 1em 0;
+}
+.adres h2{
+    margin: 0;
+}
+
+.adres p{
+    padding: .3em 0;
+    font-weight: 600;
+    color: #5A6A83;
+}
+.adres p:first-of-type{padding-top: 1em;}
+
+.social{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    max-width: 100%;
+}
+
+.social .fab,
+.fas{
+    margin: 0 .5em;
+    color: #5A6A83;
+    transition: color 500ms ease;
+}
+
+.fab:hover, .fas:hover{ color: #444444; }
 
 /* Contact stijlen -------------------------------------------------------------------------------------- */
 
@@ -426,9 +484,37 @@ h2{
     }
 
     .wijzig{
-        width: 60%;
-        margin: 1em 0;
+        width: 100%;
+        margin: 1em auto;
     }
+
+    .wijzigform{ padding: 0 3em; }
+
+    .aanmaakform{
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .detail{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .detail .foto{
+        display: flex;
+        align-items: center;
+    }
+
+    .detail img{
+        width: 400px;
+        border-radius: 5px;
+    }
+
+    .social{ padding-top: 2em; }
+
+    .rest{min-width: 896px;}
+
+    .rest .besch{ column-count: 2; }
 }
 /* Footer stijlen -------------------------------------------------------------------------------------- */
 

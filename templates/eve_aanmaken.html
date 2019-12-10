@@ -1,13 +1,9 @@
 <h2 class="maintitle">Evenement aanmaken</h2>
 
-<!-- oorspronkelijke code -->
-<!--    <section class="contcontainer beheer">-->
-<!--        <section class="toevoegen">-->
-<!--            <img src="images/ccccouler.jpg" alt="image">-->
-<!--            <a class="toevoegenbutton" href="#">Voeg afbeelding toe</a>-->
-<!--        </section>-->
+<section class="contcontainer beheer">
+
     <section class="wijzig">
-        <form action="lib/processForm.php" method="post" id="eve_aanmaken" enctype="multipart/form-data" class="wijzigform">
+        <form action="lib/processForm.php" method="post" id="eve_aanmaken" enctype="multipart/form-data" class="aanmaakform">
 <!-- bevestiging van upload naar database -->
             <!--            <?php if(!empty($msg)): ?>-->
 <!--            <div class="alert <?php echo $css_class; ?>">-->
@@ -18,27 +14,19 @@
             <input type="hidden" id="formname" name="formname" value="eve_form">
             <input type="hidden" id="tablename" name="tablename" value="evenement">
             <input type="hidden" id="pkey" name="pkey" value="eve_id">
-
-            <div class="form-group text-center afbeelding">
-                <img src="images/placeholder.png" onclick="triggerClick()" id="imageDisplay">
-                <label for="eventImage">Event Image</label>
-                <input type="file" name="eventImage" onchange="displayImage(this)" id="eventImage" style="display: none;">
-            </div>
-
-
             <div class="invul">
                 <label for="eve_naam">Naam</label>
-                <input type="text" name="eve_naam" id="eve_naam" placeholder="Naam..." required>
+                <input type="text" name="eve_naam" id="eve_naam" placeholder="Naam..." >
             </div>
             <div class="invul">
                 <fieldset>
                     <legend>Locatie</legend>
                     <label for="loc_straat" hidden>Straat</label>
-                    <input id="loc_straat" placeholder="Straat..." name="loc_straat" required>
+                    <input id="loc_straat" placeholder="Straat..." name="loc_straat" >
                     <label for="loc_nr" hidden>Nummer</label>
-                    <input id="loc_nr" placeholder="Huisnr..." name="loc_nr" required>
+                    <input id="loc_nr" placeholder="Huisnr..." name="loc_nr" >
                     <label for="loc_pos_id" hidden>Postcode</label>
-                    <input id="loc_pos_id" placeholder="Postcode..." name="postcode" required>
+                    <input id="loc_pos_id" placeholder="Postcode..." name="postcode" >
                     <label for="loc_gebouw" hidden>Gebouw</label>
                     <input id="loc_gebouw" placeholder="Gebouw..." name="loc_gebouw">
                 </fieldset>
@@ -47,18 +35,18 @@
                 <fieldset>
                     <legend>Prijs (zonder €-teken)</legend>
                     <label for="eve_minprijs" hidden>Min. prijs</label>
-                    <input type="text" name="eve_minprijs" id="eve_minprijs" placeholder="Minimum..." required>
+                    <input type="text" name="eve_minprijs" id="eve_minprijs" placeholder="Minimum..." >
                     <label for="eve_maxprijs" hidden>Max. prijs</label>
-                    <input type="text" name="eve_maxprijs" id="eve_maxprijs" placeholder="Maximum..." required>
+                    <input type="text" name="eve_maxprijs" id="eve_maxprijs" placeholder="Maximum..." >
                 </fieldset>
             </div>
             <div class="invul">
                 <fieldset>
                     <legend>Datum</legend>
                     <label for="eve_begindatum" hidden>Begindatum</label>
-                    <input type="date" name="eve_begindatum" id="eve_begindatum" placeholder="Begindatum..." required>
+                    <input type="date" name="eve_begindatum" id="eve_begindatum" placeholder="Begindatum..." >
                     <label for="eve_einddatum" hidden>Einddatum</label>
-                    <input type="date" name="eve_einddatum" id="eve_einddatum" placeholder="Einddatum..." required>
+                    <input type="date" name="eve_einddatum" id="eve_einddatum" placeholder="Einddatum..." >
                 </fieldset>
             </div>
             <div class="invul">
@@ -72,7 +60,11 @@
             </div>
             <div class="invul">
                 <label for="eve_beschrijving">Beschrijving</label>
-                <textarea name="eve_beschrijving" id="eve_beschrijving" required></textarea>
+                <textarea name="eve_beschrijving" id="eve_beschrijving" ></textarea>
+            </div>
+            <div class="invul">
+                <label for="eve_image">Afbeelding</label>
+                <input type="file" name="eve_image" id="eve_image">
             </div>
             <div class="beheerbutton">
                 <button type="submit" name="aanmaakbutton" value="Aanmaken">Evenement aanmaken</button>

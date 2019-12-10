@@ -8,6 +8,7 @@ if ( $buttonvalue == "Log in" )
     //gebruiker opzoeken ahv zijn login (e-mail)
     $sql = "SELECT * FROM user WHERE use_email='" . $_POST['use_email'] . "' ";
     $data = GetData($sql);
+
     if ( count($data) == 1 )
     {
         $row = $data[0];
