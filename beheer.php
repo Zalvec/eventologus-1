@@ -9,7 +9,7 @@ if (!isset($_SESSION["user"])){
 }
 ?>
 <main class="container">
-    <h2 class="maintitle">Uw evenementen</h2>
+    <h2 class="maintitle">Uw evenementen??</h2>
     <section class="contcontainer">
         <section class="undertitle">
             <?php
