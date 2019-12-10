@@ -31,7 +31,7 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
         "INSERT INTO locatie SET " .
         "loc_gebouw='" . $_POST['loc_gebouw'] . "' , " .
         "loc_straat='" . $_POST['loc_straat'] . "' , " .
-        "loc_nr='" . $_POST['loc_nr'] . "';" ;
+        "loc_nr='" . $_POST['loc_nr'] . "';";
 }
 
 
