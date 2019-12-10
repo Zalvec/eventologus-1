@@ -9,7 +9,7 @@ if (!isset($_SESSION["user"])){
 }
 ?>
 <main class="container">
-    <h2 class="maintitle">Uw evenementen??</h2>
+    <h2 class="maintitle">Uw evenementen</h2>
     <section class="contcontainer">
         <section class="undertitle">
             <?php
@@ -43,6 +43,18 @@ if (!isset($_SESSION["user"])){
         <?php
         print LoadTemplate("eve_aanmaken_2");
         ?>
+    <select name="cev_cat_id" id='cev_cat_id'>
+        <?php
+        $sql = "select * from categorie order by cat_naam";
+        $data_cat = GetData($sql);
+        foreach ($data_cat as $array){
+            $option = "$array[cat_naam]";
+            echo "<option value='$array[cat_id]'>$option</option>";}
+        ?>
+    </select>
+    <?php
+    print LoadTemplate("eve_aanmaken_3");
+    ?>
 
 
 
