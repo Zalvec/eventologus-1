@@ -1,0 +1,22 @@
+<h2 class="maintitle">Evenement aanmaken</h2>
+
+<section class="contcontainer beheer">
+
+    <section class="wijzig">
+        <form action="lib/aanmaken.php" method="post" id="eve_aanmaken" enctype="multipart/form-data" class="aanmaakform">
+
+            <input type="hidden" id="formname" name="formname" value="eve_form">
+            <input type="hidden" id="tablename" name="tablename" value="evenement">
+            <input type="hidden" id="pkey" name="pkey" value="eve_id">
+
+            <div class="invul">
+                <label for="eve_naam">Naam</label>
+                <input type="text" name="eve_naam" id="eve_naam" placeholder="Naam..." >
+            </div>
+            <div class="invul">
+                <fieldset>
+                    <legend>Locatie</legend>
+                    <label for="loc_straat" hidden>Straat</label>
+                    <input id="loc_straat" placeholder="Straat..." name="loc_straat" >
+                    <label for="loc_nr" hidden>Nummer</label>
+                    <input id="loc_nr" placeholder="Huisnr..." name="loc_nr" >

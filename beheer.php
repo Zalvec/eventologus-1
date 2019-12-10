@@ -28,9 +28,25 @@ if (!isset($_SESSION["user"])){
             ?>
         </section>
     </section>
-    <?php
-    print LoadTemplate("eve_aanmaken");
-    ?>
+        <?php
+        print LoadTemplate("eve_aanmaken_1");
+        ?>
+        <select name="loc_pos_id" id='loc_pos_id'>
+            <?php
+            $sql = "select pos_id, pos_code, pos_gemeente from postcode order by pos_code";
+            $data_pos = GetData($sql);
+            foreach ($data_pos as $array){
+                $option = "$array[pos_code], $array[pos_gemeente]";
+                echo "<option value='$array[pos_id]'>$option</option>";}
+            ?>
+        </select>
+        <?php
+        print LoadTemplate("eve_aanmaken_2");
+        ?>
+
+
+
+
 </main>
 <?php print LoadTemplate("basic_footer"); ?>
 </html>
