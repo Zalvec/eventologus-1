@@ -1,6 +1,8 @@
 <?php
 require_once "autoload.php";
 
+include "lib/pdo.php";
+
 $formname = $_POST["formname"];
 $tablename = $_POST["tablename"];
 $pkey = $_POST["pkey"];
@@ -18,7 +20,16 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
     move_uploaded_file($image['tmp_name'], $target);
 
     print $imagename;
-    $sql = "INSERT INTO $tablename SET " .
+    $sql_loc = "INSERT INTO locatie SET " .
+        "loc_gebouw='" . $_POST['loc_gebouw'] . "' , " .
+        "loc_straat='" . $_POST['loc_straat'] . "' , " .
+        "loc_nr='" . $_POST['loc_nr'] . "';" .
+        "loc_pos_id='" . $_POST['loc_pos_id'] . "';";
+
+    $sql = "select last_insert_id() laatste_id";
+
+
+    $sql_eve = "INSERT INTO $tablename SET " .
         "eve_naam='" . $_POST['eve_naam'] . "' , " .
         "eve_minprijs='" . $_POST['eve_minprijs'] . "' , " .
         "eve_maxprijs='" . $_POST['eve_maxprijs'] . "' , " .
@@ -27,31 +38,10 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
         "eve_opening='" . $_POST['eve_opening'] . "' , " .
         "eve_sluiting='" . $_POST['eve_sluiting'] . "' , " .
         "eve_image='" . $imagename . "' , " .
-        "eve_beschrijving='" . $_POST['eve_beschrijving'] . "' ; " .
-        "INSERT INTO locatie SET " .
-        "loc_gebouw='" . $_POST['loc_gebouw'] . "' , " .
-        "loc_straat='" . $_POST['loc_straat'] . "' , " .
-        "loc_nr='" . $_POST['loc_nr'] . "';";
+        "eve_beschrijving='" . $_POST['eve_beschrijving'] . "' ; ";
+    var_dump(GetData($sql_loc));
+    var_dump(GetData($sql));
+    var_dump(GetData($sql_eve));
 }
 
 
-
-
-//if (isset($_POST['eve_aanmaken'])) {
-
-//    echo "<pre>", print_r($_FILES['eventImage']), "</pre>";
-
-        //melding bij succes of fout upload
-//        if (mysqli_query($conn, $sql)) {
-//            $msg = "Image uploaded and saved to database";
-//            $css_class = "alert-success";
-//        } else {
-//            $msg = "Database Error: Failed to save user";
-//            $css_class = "alert-danger";
-//        }
-//
-//    }
-//    else {
-//        $msg = "Failed to upload";
-//        $css_class = "alert-danger";
-//    }
