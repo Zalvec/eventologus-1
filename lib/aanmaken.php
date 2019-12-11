@@ -28,19 +28,34 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
 
     Check('locatie', $loc_id, 'loc_id');
 
-    $sql_eve = "INSERT INTO $tablename SET " .
-        "eve_naam='" . $_POST['eve_naam'] . "' , " .
-        "eve_loc_id='" . $loc_id . "' , " .
-        "eve_use_id='" . $_SESSION['user']["use_id"] . "' , " .
-        "eve_minprijs='" . $_POST['eve_minprijs'] . "' , " .
-        "eve_maxprijs='" . $_POST['eve_maxprijs'] . "' , " .
-        "eve_begindatum='" . $_POST['eve_begindatum'] . "' , " .
-        "eve_einddatum='" . $_POST['eve_einddatum'] . "' , " .
-        "eve_opening='" . $_POST['eve_opening'] . "' , " .
-        "eve_sluiting='" . $_POST['eve_sluiting'] . "' , " .
-        "eve_image='" . $imagename . "' , " .
-        "eve_beschrijving='" . $_POST['eve_beschrijving'] . "' ; ";
-
+    if (!isset($_POST['check'])) {
+        $sql_eve = "INSERT INTO $tablename SET " .
+            "eve_naam='" . $_POST['eve_naam'] . "' , " .
+            "eve_loc_id='" . $loc_id . "' , " .
+            "eve_use_id='" . $_SESSION['user']["use_id"] . "' , " .
+            "eve_minprijs='" . $_POST['eve_minprijs'] . "' , " .
+            "eve_maxprijs='" . $_POST['eve_maxprijs'] . "' , " .
+            "eve_begindatum='" . $_POST['eve_begindatum'] . "' , " .
+            "eve_einddatum='" . $_POST['eve_einddatum'] . "' , " .
+            "eve_opening='" . $_POST['eve_opening'] . "' , " .
+            "eve_sluiting='" . $_POST['eve_sluiting'] . "' , " .
+            "eve_image='" . $imagename . "' , " .
+            "eve_beschrijving='" . $_POST['eve_beschrijving'] . "' ; ";
+    } else {
+        $sql_eve = "INSERT INTO $tablename SET " .
+            "eve_naam='" . $_POST['eve_naam'] . "' , " .
+            "eve_loc_id='" . $loc_id . "' , " .
+            "eve_use_id='" . $_SESSION['user']["use_id"] . "' , " .
+            "eve_minprijs= 0 , " .
+            "eve_maxprijs= 0 , " .
+            "eve_gratis = ".$_POST['check']." ,".
+            "eve_begindatum='" . $_POST['eve_begindatum'] . "' , " .
+            "eve_einddatum='" . $_POST['eve_einddatum'] . "' , " .
+            "eve_opening='" . $_POST['eve_opening'] . "' , " .
+            "eve_sluiting='" . $_POST['eve_sluiting'] . "' , " .
+            "eve_image='" . $imagename . "' , " .
+            "eve_beschrijving='" . $_POST['eve_beschrijving'] . "' ; ";
+    }
     $eve_id = GetData_LastID($sql_eve)['last_id'];
 
     Check($tablename ,$eve_id, 'eve_id');
@@ -74,11 +89,12 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
         }
 
     }
+    var_dump($_POST);
 
-    if (!isset($_SESSION['msg'])){
+    /*if (!isset($_SESSION['msg'])){
         $_SESSION['msg'] = "Uw evenement is succesvol aangemaakt! u kan het bekijken en bewerken in het tabblad 'Beheer'.";
     }
-    header("Location: ../beheer.php");
+    header("Location: ../beheer.php");*/
 }
 
 
