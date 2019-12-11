@@ -455,6 +455,12 @@ h2{
     max-width: 100%;
     min-height: 200px;
 }
+.invul img {
+    margin: 1em 0;
+    border-radius: 5px;
+    max-width: 50%;
+}
+.invul input[type=file] { display: none;}
 
 #loc_straat{width: 70%;}
 #loc_nr{width: 14%;}

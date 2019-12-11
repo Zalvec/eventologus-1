@@ -1,5 +1,5 @@
 function triggerClick() {
-    document.querySelector('#eventImage').click();
+    document.querySelector('#eve_image').click();
 }
 
 function displayImage(e) {
@@ -7,7 +7,7 @@ function displayImage(e) {
         var reader = new FileReader();
 
         reader.onload = function(e) {
-            document.querySelector('#imageDisplay').setAttribute('src', e.target.result);
+            document.querySelector('#display').setAttribute('src', e.target.result);
         }
         reader.readAsDataURL(e.files[0]);
     }
