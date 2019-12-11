@@ -17,7 +17,7 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
 
     move_uploaded_file($image['tmp_name'], $target);
 
-    print $imagename;
+    //print $imagename;
     $sql_loc = "INSERT INTO locatie SET " .
         "loc_gebouw='" . $_POST['loc_gebouw'] . "' , " .
         "loc_straat='" . $_POST['loc_straat'] . "' , " .
@@ -25,7 +25,6 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
         "loc_pos_id='" . $_POST["loc_pos_id"] . "';";
 
     $loc_id = GetData_LastID($sql_loc)['last_id'];
-    var_dump($_POST);
 
     $sql_eve = "INSERT INTO $tablename SET " .
         "eve_naam='" . $_POST['eve_naam'] . "' , " .
@@ -46,9 +45,20 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
         "cev_cat_id='" . $_POST["cev_cat_id"] . "' , " .
         "cev_eve_id='" . $eve_id . "';";
 
-    print $sql_cat;
 
     GetData($sql_cat);
+
+//    $sql_somnaam = "SELECT * FROM socialmedia";
+////
+////    $array = GetData($sql_somnaam);
+////    print json_encode($array);
+////
+////    $sql_somid = "select som_id from socialmedia where ";
+////
+////    $i = 0;
+////    foreach ($array as $miniarray){
+////        print $miniarray['som_name'];
+////    }
 }
 
 
