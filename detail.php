@@ -8,11 +8,13 @@ if (!isset($_SESSION["user"])){
     print LoadTemplate("user_header");
 }
 ?>
-<main class="container">
-    <section class="contcontainer">
-            <?php
-            foreach ($_GET as $id => $niks){
 
+<main class="container">
+    <section class="contcontainer contdetail">
+
+            <?php
+
+            foreach ($_GET as $id => $niks){
             };
             $sql = "select *, date_format(eve_begindatum, \"%e %b %Y\") begin_format, date_format(eve_einddatum, \"%e %b %Y\") eind_format from evenement
                     inner join locatie l on evenement.eve_loc_id = l.loc_id
@@ -24,50 +26,36 @@ if (!isset($_SESSION["user"])){
             $template = LoadTemplate('detail');
             ReplaceContent($data, $template );
 
-            $sql = "select * from hyperlink
+            ?>
+
+        <div class="social">
+
+            <?php
+
+            $sql = "select som_name, som_icoon, hyp_link from hyperlink
                     inner join socialmedia s on hyperlink.hyp_som_id = s.som_id
                     inner join evenement e on hyperlink.hyp_eve_id = e.eve_id
                     where eve_id = $id";
             $data = GetData($sql);
+
+            $sql_som = "select som_name from socialmedia";
+            $som = GetData($sql_som);
+            $som_name = array();
+            foreach ($som as $niks=>$array){
+                $som_name[]= $array['som_name'];
+            }
             foreach ($data as $row) {
-                if ($row['som_name'] == 'facebook') {
-                    $icoonfb = "fab fa-facebook-square fa-3x";
-                    $linkfb = $row['hyp_link'];
-                    $facebook = true;
-                }
-                if ($row['som_name'] == 'twitter') {
-                    $icoontw = "fab fa-twitter-square fa-3x";
-                    $linktw = $row['hyp_link'];
-                    $twitter = true;
-                }
-                if ($row['som_name'] == 'instagram') {
-                    $icoonig = "fab fa-instagram fa-3x";
-                    $linkig = $row['hyp_link'];
-                    $instagram = true;
-                }
-                if ($row['som_name'] == 'youtube') {
-                    $icoonyt = "fab fa-youtube-square fa-3x";
-                    $linkyt = $row['hyp_link'];
-                    $youtube = true;
-                }
-                if ($row['som_name'] == 'tickets') {
-                    $icoontick = "fas fa-ticket-alt fa-3x";
-                    $linktick = 'https://'.$row['hyp_link'];
-                    $tickets = true;
+                if (in_array($row['som_name'], $som_name)) {
+                    $icoon = $row['som_icoon'];
+                    $link = 'https://'.$row['hyp_link'];
+                    print "<a href='".$link."' class='".$icoon."'></a>";
                 }
             }
+
             ?>
-            <div class="social">
-            <?php
-            if ($facebook) print "<a href='".$linkfb."' class='".$icoonfb."'></a>";
-            if ($twitter) print "<a href='".$linktw."' class='".$icoontw."'></a>";
-            if ($instagram) print "<a href='".$linkig."' class='".$icoonig."'></a>";
-            if ($youtube) print "<a href='".$linkyt."' class='".$icoonyt."'></a>";
-            if ($tickets) print "<a href='".$linktick."' class='".$icoontick."'></a>";
-            ?>
-            </div>
-            </div>
-            </div>
+        </div>
+        </div>
+        </div>
     </section>
 </main>
 

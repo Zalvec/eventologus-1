@@ -26,6 +26,8 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
 
     $loc_id = GetData_LastID($sql_loc)['last_id'];
 
+    Check('locatie', $loc_id, 'loc_id');
+
     $sql_eve = "INSERT INTO $tablename SET " .
         "eve_naam='" . $_POST['eve_naam'] . "' , " .
         "eve_loc_id='" . $loc_id . "' , " .
@@ -41,24 +43,42 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
 
     $eve_id = GetData_LastID($sql_eve)['last_id'];
 
+    Check($tablename ,$eve_id, 'eve_id');
+
     $sql_cat = "INSERT INTO categorie_evenement SET " .
         "cev_cat_id='" . $_POST["cev_cat_id"] . "' , " .
         "cev_eve_id='" . $eve_id . "';";
 
+    $cev_id = GetData_LastID($sql_cat)['last_id'];
 
-    GetData($sql_cat);
+    Check('categorie_evenement', $cev_id, 'cev_id');
 
-//    $sql_somnaam = "SELECT * FROM socialmedia";
-////
-////    $array = GetData($sql_somnaam);
-////    print json_encode($array);
-////
-////    $sql_somid = "select som_id from socialmedia where ";
-////
-////    $i = 0;
-////    foreach ($array as $miniarray){
-////        print $miniarray['som_name'];
-////    }
+    $sql_som_name = "select som_name from socialmedia";
+    $som = GetData($sql_som_name);
+    $som_name = array();
+    foreach ($som as $niks=>$array){
+        $som_name[]= $array['som_name'];
+    }
+
+    foreach ($_POST as $key => $value){
+
+        if (in_array($key,$som_name) and strlen($value) > 5){
+            $sql_som = "SELECT som_id from socialmedia where som_name = '". $key ."'";
+            $data = GetData($sql_som);
+            $sql_hyp = "INSERT INTO hyperlink SET 
+                        hyp_som_id = ". $data[0]['som_id']." ,
+                        hyp_eve_id = ".$eve_id." ,
+                        hyp_use_id = ".$_SESSION['user']['use_id'].", 
+                        hyp_link = '".$value."'";
+            $hyp_id = GetData_LastID($sql_hyp)['last_id'];
+        }
+
+    }
+
+    if (!isset($_SESSION['msg'])){
+        $_SESSION['msg'] = "Uw evenement is succesvol aangemaakt! u kan het bekijken en bewerken in het tabblad 'Beheer'.";
+    }
+    header("Location: ../beheer.php");
 }
 
 

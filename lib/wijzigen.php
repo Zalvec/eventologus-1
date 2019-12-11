@@ -32,11 +32,11 @@ if ( $formname == "eve_wijzig_form" )
     if ( ExecuteSQL($sql_eve) and ExecuteSQL($sql_loc)){
         $_SESSION['msg'] = 'Uw evenement is gewijzigd!' ;
         //echo "<meta http-equiv='refresh' content='1;../index.php'>";
-        header('Location: ../eve_wijzig.php');
+        header('Location: ../beheer.php');
         }
     else {
         $_SESSION['msg'] = "Sorry, er liep iets fout. De gegevens werden niet goed opgeslagen" ;
-        header('Location: ../eve_wijzig.php');
+        header('Location: ../beheer.php');
     }
 }
 ?>

@@ -26,11 +26,11 @@ function GetData( $sql )
 
     $rows = $stm->fetchAll(PDO::FETCH_ASSOC);
 
-
-
     return $rows;
 }
 
+
+// Functie om een insert query uit te voeren en de laatst toegevoegde id in die query terug te krijgen
 function GetData_LastID( $sql )
 {
     $pdo = GetConnection();
@@ -56,4 +56,5 @@ function ExecuteSQL( $sql )
     if ( $stm->execute() ) return true;
     else return false;
 }
+
 
