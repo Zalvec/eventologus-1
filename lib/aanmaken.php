@@ -20,7 +20,7 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
 
     $sql_loc = "INSERT INTO locatie SET " .
         "loc_gebouw='" . $_POST['loc_gebouw'] . "' , " .
-        "loc_straat='" . $_POST['loc_straat'] . "' , " .
+        "loc_straat=\"" . $_POST['loc_straat'] . "\" , " .
         "loc_nr='" . $_POST['loc_nr'] . "' ," .
         "loc_pos_id='" . $_POST["loc_pos_id"] . "';";
 
@@ -57,6 +57,7 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
             "eve_image='" . $imagename . "' , " .
             "eve_beschrijving=\"". $_POST['eve_beschrijving'] . "\" ";
     }
+
     $eve_id = GetData_LastID($sql_eve)['last_id'];
 
     Check($tablename ,$eve_id, 'eve_id');

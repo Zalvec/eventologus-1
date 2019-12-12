@@ -49,7 +49,7 @@ if (!isset($_SESSION["user"])){
                                         where cat_naam = '".$cat_naam."' 
                                         limit 3");
             ReplaceContent($data,$template);
-            print "<a href='categorie_pagina?".$data[0]['cat_id']."'>Alle evenementen...</a>"
+            print "<a class='lees_meer' href='categorie?".$data[0]['cat_id']."'>Alle evenementen...</a>"
         ?>
         </section>
     </section>

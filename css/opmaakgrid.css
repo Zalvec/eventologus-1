@@ -17,7 +17,36 @@ body{
     font-family: "Raleway" ;
 }
 
+a{
+    color: #5A6A83;
+    text-decoration: none;
+    transition: color 500ms ease;
+}
+
+a:hover{
+    color: mediumpurple;
+}
+
 main{padding-bottom: 110px;}
+
+.lees_meer{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    text-align: center;
+    text-decoration: underline;
+    margin-top: 1em;
+    border: 1px solid mediumpurple;
+    border-radius: 5px;
+    display: inline;
+    padding: .5em 0;
+    transition: background 1000ms ease;
+    background: #CBDEF4;
+}
+
+.lees_meer:hover{
+    background: #d8acdb;
+    color: white;
+}
 
 .container{
     max-width: 80%;
@@ -184,7 +213,7 @@ main h2{
 
 h2{
     font-size: 1.5rem;
-    margin-top: 1em;
+    padding-bottom: .8em;
 }
 
 .content a img{
@@ -494,10 +523,7 @@ h2{
 
 .socialemedia .linksdiv { display: flex; }
 
-.linksdiv label {
-    margin-top: 1em;
-    padding-top: 10em;
-}
+.linksdiv label { margin-top: 11em; }
 
 .socialemedia legend { margin-bottom: 1em;}
 
