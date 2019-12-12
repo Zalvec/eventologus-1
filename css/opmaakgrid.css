@@ -8,7 +8,7 @@ html{
     position: relative;
 }
 
-img{ object-fit: cover; }
+.detailimage{ object-fit: cover; }
 
 body{
     font: 100%/1.4;

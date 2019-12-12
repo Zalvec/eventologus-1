@@ -10,6 +10,7 @@ $pkey = $_POST["pkey"];
 //$msg = "";
 //$css_class = "";
 
+
 if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
     $image = $_FILES['eve_image'];
     $imagename = time().'_'.$image['name'];
@@ -27,6 +28,7 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
 
     Check('locatie', $loc_id, 'loc_id');
 
+
     if (empty($_POST['eve_gratis'])) {
         $sql_eve = "INSERT INTO $tablename SET " .
             "eve_naam='" . $_POST['eve_naam'] . "' , " .
@@ -39,23 +41,22 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
             "eve_opening='" . $_POST['eve_opening'] . "' , " .
             "eve_sluiting='" . $_POST['eve_sluiting'] . "' , " .
             "eve_image='" . $imagename . "' , " .
-            "eve_beschrijving='" . $_POST['eve_beschrijving'] . "' ";
+            "eve_beschrijving=\"". $_POST['eve_beschrijving'] . "\" ";
     } else {
         $sql_eve = "INSERT INTO $tablename SET " .
             "eve_naam='" . $_POST['eve_naam'] . "' , " .
             "eve_loc_id='" . $loc_id . "' , " .
             "eve_use_id='" . $_SESSION['user']["use_id"] . "' , " .
-            "eve_minprijs= 0 , " .
-            "eve_maxprijs= 0 , " .
+            "eve_minprijs= '0' , " .
+            "eve_maxprijs= '0' , " .
             "eve_gratis = '".$_POST['eve_gratis']."' ,".
             "eve_begindatum='" . $_POST['eve_begindatum'] . "' , " .
             "eve_einddatum='" . $_POST['eve_einddatum'] . "' , " .
             "eve_opening='" . $_POST['eve_opening'] . "' , " .
             "eve_sluiting='" . $_POST['eve_sluiting'] . "' , " .
             "eve_image='" . $imagename . "' , " .
-            "eve_beschrijving='" . $_POST['eve_beschrijving'] . "' ";
+            "eve_beschrijving=\"". $_POST['eve_beschrijving'] . "\" ";
     }
-
     $eve_id = GetData_LastID($sql_eve)['last_id'];
 
     Check($tablename ,$eve_id, 'eve_id');
