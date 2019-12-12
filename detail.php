@@ -1,12 +1,6 @@
 <?php
 require_once "lib/autoload.php";
-ShowMessages();
-BasicHead();
-if (!isset($_SESSION["user"])){
-    print LoadTemplate("basic_header");
-} else{
-    print LoadTemplate("user_header");
-}
+
 ?>
 
 <main class="container">
