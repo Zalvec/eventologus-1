@@ -93,7 +93,7 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
     }
 
     if (!isset($_SESSION['msg'])){
-        $_SESSION['msg'] = "Uw evenement is succesvol aangemaakt! u kan het bekijken en bewerken in het tabblad 'Beheer'.";
+        $_SESSION['msg'] = "Uw evenement is succesvol aangemaakt! U kan het bekijken en bewerken in het tabblad 'Beheer'.";
     }
     header("Location: ../beheer.php");
 }

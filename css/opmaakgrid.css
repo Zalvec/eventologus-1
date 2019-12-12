@@ -8,6 +8,8 @@ html{
     position: relative;
 }
 
+img{ object-fit: cover; }
+
 body{
     font: 100%/1.4;
     color: #5A6A83;
@@ -453,12 +455,13 @@ h2{
 .invul textarea{
     min-width: 100%;
     max-width: 100%;
-    min-height: 200px;
+    height: 200px;
 }
 .invul #display {
     margin: 1em 0;
     border-radius: 5px;
-    max-width: 50%;
+    height: 400px;
+    width: 400px;
 }
 
 .invul input[type=file] { display: none;}
@@ -554,6 +557,7 @@ h2{
 
     .detail img{
         width: 400px;
+        height: 400px;
         border-radius: 5px;
     }
 

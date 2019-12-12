@@ -9,9 +9,18 @@ if (!isset($_SESSION["user"])){
 }
 ?>
 <main class="container">
+    <ul class="categorieën_list">
+        <li><a href="categorie_pagina.php">Alle</a></li>
     <?php
-print LoadTemplate("catnav");
+    $sql = "select * from categorie
+            left join categorie_evenement ce on categorie.cat_id = ce.cev_cat_id
+            group by cat_naam
+            order by cat_id";
+    $data = GetData($sql);
+    $template =  LoadTemplate("catnav");
+    ReplaceContent($data, $template);
 ?>
+    </ul>
     <section class="contcontainer">
         <section class="undertitle">
             <?php

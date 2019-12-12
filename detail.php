@@ -47,7 +47,11 @@ if (!isset($_SESSION["user"])){
             foreach ($data as $row) {
                 if (in_array($row['som_name'], $som_name)) {
                     $icoon = $row['som_icoon'];
-                    $link = 'https://'.$row['hyp_link'];
+                    if (substr( $row['hyp_link'], 0, 7 ) === "http://" or substr( $row['hyp_link'], 0, 8 ) === "https://" ){
+                        $link = $row['hyp_link'];
+                    } else{
+                        $link = 'https://'.$row['hyp_link'];
+                    }
                     print "<a href='".$link."' class='".$icoon."' target=\"_blank\"></a>";
                 }
             }
