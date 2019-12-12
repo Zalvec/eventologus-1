@@ -33,7 +33,7 @@ main{padding-bottom: 110px;}
     grid-column-start: 2;
     grid-column-end: 3;
     text-align: center;
-    text-decoration: underline;
+    /*text-decoration: underline;*/
     margin-top: 1em;
     border: 1px solid mediumpurple;
     border-radius: 5px;
