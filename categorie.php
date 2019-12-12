@@ -1,12 +1,7 @@
 <?php
 require_once "lib/autoload.php";
-ShowMessages();
-BasicHead();
-if (!isset($_SESSION["user"])){
-    print LoadTemplate("basic_header");
-} else{
-    print LoadTemplate("user_header");
-}
+
+
 ?>
 <main class="container">
     <ul class="categorieën_list">
@@ -45,7 +40,7 @@ if (!isset($_SESSION["user"])){
         ?>
         <section class="undertitle">
             <?php
-            $template = LoadTemplate("uitgelicht");
+            $template = LoadTemplate("categorie");
             $data = GetData("select *, date_format(eve_begindatum, \"%e %b %Y\") begin_format, date_format(eve_einddatum, \"%e %b %Y\") eind_format  from evenement
                                     inner join locatie l on evenement.eve_loc_id = l.loc_id
                                     inner join postcode p on l.loc_pos_id = p.pos_id
