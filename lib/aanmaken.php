@@ -10,7 +10,6 @@ $pkey = $_POST["pkey"];
 //$msg = "";
 //$css_class = "";
 
-
 if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
     $image = $_FILES['eve_image'];
     $imagename = time().'_'.$image['name'];
@@ -27,7 +26,6 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
     $loc_id = GetData_LastID($sql_loc)['last_id'];
 
     Check('locatie', $loc_id, 'loc_id');
-
 
     if (empty($_POST['eve_gratis'])) {
         $sql_eve = "INSERT INTO $tablename SET " .
@@ -57,8 +55,8 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
             "eve_image='" . $imagename . "' , " .
             "eve_beschrijving='" . $_POST['eve_beschrijving'] . "' ";
     }
-    $eve_id = GetData_LastID($sql_eve)['last_id'];
 
+    $eve_id = GetData_LastID($sql_eve)['last_id'];
 
     Check($tablename ,$eve_id, 'eve_id');
 
@@ -89,7 +87,6 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
                         hyp_link = '".$value."'";
             $hyp_id = GetData_LastID($sql_hyp)['last_id'];
         }
-
     }
 
     if (!isset($_SESSION['msg'])){
