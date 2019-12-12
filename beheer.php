@@ -32,10 +32,13 @@ if (!isset($_SESSION["user"])){
         <?php
         print LoadTemplate("eve_aanmaken_1");
         ?>
-        <select name="loc_pos_id" id='loc_pos_id'>
+        <select name="loc_pos_id" id='loc_pos_id' required>
             <?php
             $sql = "select pos_id, pos_code, pos_gemeente from postcode order by pos_code";
             $data_pos = GetData($sql);
+            ?>
+            <option value='' disabled selected>Selecteer de postcode..</option>
+            <?php
             foreach ($data_pos as $array){
                 $option = "$array[pos_code], $array[pos_gemeente]";
                 echo "<option value='$array[pos_id]'>$option</option>";}
@@ -44,10 +47,13 @@ if (!isset($_SESSION["user"])){
         <?php
         print LoadTemplate("eve_aanmaken_2");
         ?>
-    <select name="cev_cat_id" id='cev_cat_id'>
+    <select name="cev_cat_id" id='cev_cat_id' required>
         <?php
         $sql = "select * from categorie order by cat_naam";
         $data_cat = GetData($sql);
+        ?>
+        <option value='' disabled selected>Selecteer de categorie..</option>
+        <?php
         foreach ($data_cat as $array){
             $option = "$array[cat_naam]";
             echo "<option value='$array[cat_id]'>$option</option>";}
