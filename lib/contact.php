@@ -14,17 +14,11 @@ if ($form_name == 'contact_form' AND $button == 'submit'){
             ($naam, $voornaam, $email, $vraag)";
     if (ExecuteSQL($sql)){
         $_SESSION['msg'] = 'Bedankt voor uw vraag, wij beantwoorden deze zo snel mogelijk!';
-        //header('Location: ../index.php');
+        header('Location: ../index.php');
     } else{
         $_SESSION['msg'] = 'Er ging iets fout bij het verwerken van uw vraag, probeer opnieuw.';
-        //header('Location: ../contact.php');
+        header('Location: ../contact.php');
     }
 }
 
-
-$sql_som = "select som_name from socialmedia";
-$som = GetData($sql_som);
-foreach ($som as $niks=>$array){
-    $som_name = $array['som_name'];
-}
 

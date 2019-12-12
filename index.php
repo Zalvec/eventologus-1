@@ -18,7 +18,9 @@ if (!isset($_SESSION["user"])){
                                     inner join locatie l on evenement.eve_loc_id = l.loc_id
                                     inner join postcode p on l.loc_pos_id = p.pos_id
                                     inner join categorie_evenement ce on evenement.eve_id = ce.cev_eve_id
-                                    inner join categorie c on ce.cev_cat_id = c.cat_id");
+                                    inner join categorie c on ce.cev_cat_id = c.cat_id
+                                    order by RAND()
+                                    limit 3");
             ReplaceContent($data,$template);
         ?>
         </section>

@@ -48,7 +48,7 @@ if (!isset($_SESSION["user"])){
                 if (in_array($row['som_name'], $som_name)) {
                     $icoon = $row['som_icoon'];
                     $link = 'https://'.$row['hyp_link'];
-                    print "<a href='".$link."' class='".$icoon."'></a>";
+                    print "<a href='".$link."' class='".$icoon."' target=\"_blank\"></a>";
                 }
             }
 

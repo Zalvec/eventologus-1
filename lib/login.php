@@ -20,7 +20,7 @@ if ( $buttonvalue == "Log in" )
     {
         $_SESSION['msg'] = "Welkom, U bent ingelogd!";
         session_start();
-        header('Location: ../index.php');
+        header('Location: ../beheer.php');
         $_SESSION['user'] = $row;
     }
     else

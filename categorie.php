@@ -16,7 +16,7 @@ print LoadTemplate("catnav");
         <section class="undertitle">
             <?php
             $template = LoadTemplate("uitgelicht");
-            $data = GetData("select eve_id, eve_naam, eve_image, eve_minprijs, eve_maxprijs, eve_begindatum, eve_einddatum, loc_gebouw, pos_gemeente, cat_naam, date_format(eve_begindatum, \"%e %b %Y\") begin_format, date_format(eve_einddatum, \"%e %b %Y\") eind_format  from evenement
+            $data = GetData("select *, date_format(eve_begindatum, \"%e %b %Y\") begin_format, date_format(eve_einddatum, \"%e %b %Y\") eind_format  from evenement
                                     inner join locatie l on evenement.eve_loc_id = l.loc_id
                                     inner join postcode p on l.loc_pos_id = p.pos_id
                                     inner join categorie_evenement ce on evenement.eve_id = ce.cev_eve_id
