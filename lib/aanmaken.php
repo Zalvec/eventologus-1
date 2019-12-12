@@ -5,11 +5,6 @@ $formname = $_POST["formname"];
 $tablename = $_POST["tablename"];
 $pkey = $_POST["pkey"];
 
-
-// empty strings needed to be able to use variables
-//$msg = "";
-//$css_class = "";
-
 if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
     $image = $_FILES['eve_image'];
     $imagename = time().'_'.$image['name'];
@@ -48,7 +43,7 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
             "eve_use_id='" . $_SESSION['user']["use_id"] . "' , " .
             "eve_minprijs= 0 , " .
             "eve_maxprijs= 0 , " .
-            "eve_gratis = ".$_POST['check']." ,".
+            "eve_gratis = '".$_POST['check']."' ,".
             "eve_begindatum='" . $_POST['eve_begindatum'] . "' , " .
             "eve_einddatum='" . $_POST['eve_einddatum'] . "' , " .
             "eve_opening='" . $_POST['eve_opening'] . "' , " .
@@ -56,6 +51,9 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
             "eve_image='" . $imagename . "' , " .
             "eve_beschrijving='" . $_POST['eve_beschrijving'] . "' ; ";
     }
+
+    print $sql_eve;
+
     $eve_id = GetData_LastID($sql_eve)['last_id'];
 
     Check($tablename ,$eve_id, 'eve_id');

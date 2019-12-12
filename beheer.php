@@ -18,6 +18,7 @@ if (!isset($_SESSION["user"])){
                     inner join locatie l on evenement.eve_loc_id = l.loc_id
                     inner join postcode p on l.loc_pos_id = p.pos_id
                     where use_email = '". $_SESSION["user"]["use_email"]."'";
+
             $data = GetData($sql);
             $template = LoadTemplate("eve_uwevenementen");
             if (!empty($data)){
