@@ -47,7 +47,7 @@ function LoadTemplate( $name )
     if (file_exists("templates/$name.html")) {
         return file_get_contents("templates/$name.html");
     } else{
-        include("templates/$name.php");
+//        include("templates/$name.php");
     }
 }
 

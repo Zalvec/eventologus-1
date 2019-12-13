@@ -9,6 +9,11 @@ $pkey = $_POST["pkey"];
 
 if ( $formname == "eve_wijzig_form" )
 {
+    $image = $_FILES['eve_image'];
+    $imagename = time().'_'.$image['name'];
+    $target = '../images/'.$imagename;
+
+    move_uploaded_file($image['tmp_name'], $target);
 
     $sql_eve = "UPDATE $tablename_eve SET " .
         " eve_naam='" . htmlentities($_POST['eve_naam'], ENT_QUOTES) . "' , " .
@@ -18,6 +23,7 @@ if ( $formname == "eve_wijzig_form" )
         " eve_einddatum='" . $_POST['eve_einddatum'] . "' , " .
         " eve_opening='" . $_POST['eve_opening'] . "' , " .
         " eve_sluiting='" . $_POST['eve_sluiting'] . "' , " .
+        "eve_image='" . $imagename . "' , " .
         " eve_beschrijving='" . $_POST['eve_beschrijving'] . "' 
         where eve_id='" . $_POST['eve_id'] . "'";
 

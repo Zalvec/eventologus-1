@@ -493,7 +493,7 @@ h2{
     width: 400px;
 }
 
-.invul input[type=file] { display: none;}
+.invul input[type=file], .afbeelding input[type=file] { display: none;}
 
 #loc_straat{width: 59%;}
 #loc_nr{width: 14%;}

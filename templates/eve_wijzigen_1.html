@@ -1,6 +1,11 @@
 <section class="contcontainer beheer">
     <section class="afbeelding">
-        <img src="images/@@eve_image@@" alt="image">
+
+        <img src="images/@@eve_image@@" onclick="triggerClick()" id="display">
+        <input type="file" name="eve_image" onchange="displayImage(this)" id="eve_image">
+        <script src="js/scripts.js"></script>
+
+
         <a class="verwijder" href="lib/verwijder.php?@@eve_id@@">Verwijder evenement</a>
     </section>
     <section class="wijzig">
