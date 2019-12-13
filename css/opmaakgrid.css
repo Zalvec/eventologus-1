@@ -1,6 +1,6 @@
 /* CSS bij eventologus */
 @import"reset.css";
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,700&display=swap');
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css";
 
 html{
@@ -14,7 +14,7 @@ body{
     font: 100%/1.4;
     color: #5A6A83;
     position: static;
-    font-family: "Raleway" ;
+    font-family: poppins ;
 }
 
 a{
@@ -33,14 +33,14 @@ main{padding-bottom: 110px;}
     grid-column-start: 2;
     grid-column-end: 3;
     text-align: center;
-    text-decoration: underline;
     margin-top: 1em;
     border: 1px solid mediumpurple;
     border-radius: 5px;
     display: inline;
     padding: .5em 0;
     transition: background 1000ms ease;
-    background: #CBDEF4;
+    background: #DEE8F4;
+    text-decoration: none;
 }
 
 .lees_meer:hover{
@@ -52,6 +52,7 @@ main{padding-bottom: 110px;}
     max-width: 80%;
     margin: 0 auto;
 }
+
 
 /* Catnav stijlen------------------------------------------------------------------------------------------------------------------------------------------------------ */
 
@@ -195,10 +196,8 @@ main h2{
     display: grid;
     grid-template-columns: 1fr;
     grid-auto-columns: 1px;
-    border: 1px solid #CBDEF4;
-    border-radius: 5px;
     padding: .5em 0;
-    grid-row-gap: 1em;
+    grid-gap: 1em;
 }
 
 .contcontainer{
@@ -214,6 +213,12 @@ main h2{
 h2{
     font-size: 1.5rem;
     padding-bottom: .8em;
+}
+
+.content{
+    background: white;
+    padding: 1em 0;
+    background: #dee8f4;
 }
 
 .content a img{

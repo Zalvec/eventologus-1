@@ -1,5 +1,5 @@
 <?php
-require_once "autoload.php";
+require_once "autoload_lib.php";
 
 $formname = $_POST["formname"];
 $tablename_loc = $_POST["tablename_loc"];
