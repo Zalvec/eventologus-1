@@ -5,6 +5,7 @@ function BasicHead()
     print LoadTemplate("basic_head");
 }
 
+/* Functie om da navigatiebar te printen, deze is verschillend voor ingelogde gebruikers */
 function PrintNavBar(){
     $laatstedeelURL = basename($_SERVER['SCRIPT_NAME']);
     if (!isset($_SESSION["user"])){
@@ -12,6 +13,7 @@ function PrintNavBar(){
         $data = GetData($sql);
         foreach( $data as $r => $row )
         {
+            $data[$r]['nav_item'] = utf8_encode($data[$r]['nav_item']);
             if ( $laatstedeelURL == $data[$r]['nav_dest'] )
             {
                 $data[$r]['active'] = 'active';
@@ -36,6 +38,7 @@ function PrintNavBar(){
         $data = GetData($sql);
         foreach( $data as $r => $row )
         {
+            $data[$r]['nav_item'] = utf8_encode($data[$r]['nav_item']);
             if ( $laatstedeelURL == $data[$r]['nav_dest'] )
             {
                 $data[$r]['active'] = 'active';
@@ -57,6 +60,8 @@ function PrintNavBar(){
     }
 }
 
+/* Functie om replace content uit te voeren voor twee templates die bij elkaar horen */
+
 function ReplaceALLContent($tempItems, $tempAll, $sql){
 
     $template = LoadTemplate($tempItems);
@@ -64,7 +69,7 @@ function ReplaceALLContent($tempItems, $tempAll, $sql){
     $content =  ReplaceContent($data, $template);
     $data = array("content" => $content);
     $template =  LoadTemplate("$tempAll");
-    print ReplaceContentRow($data, $template);
+    return ReplaceContentRow($data, $template);
 }
 
 /* Deze functie laadt de opgegeven template */
@@ -76,7 +81,7 @@ function LoadTemplate( $name )
      if (file_exists("../templates/$name.html")) {
         return file_get_contents("templates/$name.html");
     } else{
-        include("templates/$name.php");
+        return("templates/$name.php");
     }
 }
 
@@ -110,12 +115,3 @@ function ReplaceContentRow( $row, $template_html )
         return $content;
 }
 
-function Check($tabel, $id, $veld){
-
-    $check = GetData("select * from $tabel where $veld =".$id);
-
-    if (empty($check)){
-        $_SESSION['msg'] = 'Er ging iets fout bij het aanmaken. Probeer opnieuw.';
-    };
-
-}

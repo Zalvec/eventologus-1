@@ -1,8 +1,11 @@
 <?php
+
     require_once "lib/autoload.php";
 
+    /* Titel printen */
     print "<h2 class=\"maintitle\">Uitgelicht</h2>";
 
+    // SQL om 3 random evenementen uit de databank te halen
     $sql = "select *, date_format(eve_begindatum, \"%e %b %Y\") begin_format, date_format(eve_einddatum, \"%e %b %Y\") eind_format from evenement
         inner join locatie l on evenement.eve_loc_id = l.loc_id
         inner join postcode p on l.loc_pos_id = p.pos_id
@@ -10,14 +13,17 @@
         inner join categorie c on ce.cev_cat_id = c.cat_id
         order by RAND()
         limit 3";
-    ReplaceALLContent("uitgelicht", "undertitle", $sql);
+    //Vervang velden in template 'uitgelicht' door resultaten query, vervang dan velden in undertitle door content van uitgelicht
+    print ReplaceALLContent("uitgelicht", "undertitle", $sql);
 
     print LoadTemplate('window');
 
     print "<h2 class=\"maintitle\">Categorieën</h2>";
 
+    //Een array met de 2 categorieën in die op de homepagina worden weergegeven. Kan gemakkelijk aangepast worden naar andere categorieën
     $categorie = ["Conventies", "Festivals"];
     foreach ($categorie as $value) {
+        //Haal met query de naam van de categorie uit db, en replace content uit temp 'titel' met de cat_naam
         $data1 = GetData("select cat_naam from evenement
                                 inner join locatie l on evenement.eve_loc_id = l.loc_id
                                 inner join postcode p on l.loc_pos_id = p.pos_id
@@ -30,6 +36,7 @@
         $template = LoadTemplate("titel");
         print ReplaceContent($data1,$template);
 
+        //Replace content met 3 evenementen van de categorie
         $template = LoadTemplate("categorie");
         $sql = "select *, date_format(eve_begindatum, \"%e %b %Y\") begin_format, date_format(eve_einddatum, \"%e %b %Y\") eind_format from evenement
                 inner join locatie l on evenement.eve_loc_id = l.loc_id
@@ -38,8 +45,9 @@
                 inner join categorie c on ce.cev_cat_id = c.cat_id
                 where cat_naam = '".$cat_naam."' 
                 limit 3";
-        ReplaceALLContent("categorie", "undertitle", $sql);
+        print ReplaceALLContent("categorie", "undertitle", $sql);
     }
 
     print LoadTemplate("basic_footer");
+
 ?>

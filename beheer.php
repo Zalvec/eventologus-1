@@ -2,6 +2,7 @@
 
     require_once "lib/autoload.php";
 
+    //MainTitle printen
     print "<h2 class=\"maintitle\">Uw evenementen</h2>";
 
     $sql = "select * from evenement
@@ -11,18 +12,18 @@
             where use_email = '". $_SESSION["user"]["use_email"]."'";
     $data = GetData($sql);
 
+    //Geef de evenementen van de gebruiker weer, als er geen zijn wordt een boodschap weergegeven
     $template = LoadTemplate("eve_uwevenementen");
     if (!empty($data)){
         $content = ReplaceContent($data, $template);
     } else {
         $content = "<h2 class='geen_eve maintitle'> U heeft geen evenementen. </h2>";
     };
-
     $data = array("content" => $content);
     $template =  LoadTemplate("undertitle");
-
     print ReplaceContentRow($data, $template);
 
+    //Formulier om evenement aan te maken
     print LoadTemplate("eve_aanmaken");
 
     print LoadTemplate("basic_footer");

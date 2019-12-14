@@ -1,6 +1,8 @@
 <?php
+
     require_once "lib/autoload.php";
 
+    //Als GET leeg is wordt er geen specifieke categorie aangeroepen, als dat wel zo is moet er een where statement bij de SQL komen
     if (empty($_GET)){
         $where = "";
     } else {
@@ -12,13 +14,16 @@
             left join categorie_evenement ce on categorie.cat_id = ce.cev_cat_id
             group by cat_naam
             order by cat_id";
-    ReplaceALLContent("catnav_item", "catnav", $sql);
+    //Navigatie categorieën printen
+    print ReplaceALLContent("catnav_item", "catnav", $sql);
 
+    //Als $where leeg is is er geen specifieke categoriepagina geladen, dus kunnen alle evenementen geladen worden
     if (empty($where)){
         $data = array();
         $data['cat_naam'] = 'Alle';
         $templateTitel = LoadTemplate('titel');
         print ReplaceContentRow($data, $templateTitel);
+    //Anders worden enkel de evenementen van deze categorie geladen
     } else {
         $data = GetData("select * from categorie 
                             inner join categorie_evenement ce on categorie.cat_id = ce.cev_cat_id ".$where." limit 1");
@@ -32,7 +37,8 @@
                             inner join categorie_evenement ce on evenement.eve_id = ce.cev_eve_id
                             inner join categorie c on ce.cev_cat_id = c.cat_id ".$where.
                             " order by eve_minprijs";
-    ReplaceALLContent("categorie", "undertitle", $sql);
+    print ReplaceALLContent("categorie", "undertitle", $sql);
 
     print LoadTemplate("basic_footer");
+
 ?>
