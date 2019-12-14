@@ -3,9 +3,7 @@ require_once "lib/autoload.php";
 
 ?>
 
-<main class="container">
     <section class="contcontainer contdetail">
-
             <?php
 
             foreach ($_GET as $id => $niks){
@@ -18,7 +16,7 @@ require_once "lib/autoload.php";
                     where eve_id = $id";
             $data = GetData($sql);
             $template = LoadTemplate('detail');
-            ReplaceContent($data, $template );
+            print ReplaceContent($data, $template );
 
             ?>
 
@@ -55,7 +53,6 @@ require_once "lib/autoload.php";
         </div>
         </div>
     </section>
-</main>
 
 <?php
 print LoadTemplate("basic_footer");
