@@ -48,6 +48,7 @@ require_once "lib/autoload.php";
                                         inner join categorie_evenement ce on evenement.eve_id = ce.cev_eve_id
                                         inner join categorie c on ce.cev_cat_id = c.cat_id
                                         where cat_naam = '".$cat_naam."' 
+                                        order by eve_begindatum
                                         limit 3");
         ReplaceContent($data,$template);
         print "<a class='lees_meer' href='categorie?".$data[0]['cat_id']."'>Alle $value...</a>";

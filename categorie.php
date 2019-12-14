@@ -45,7 +45,8 @@ require_once "lib/autoload.php";
                                     inner join locatie l on evenement.eve_loc_id = l.loc_id
                                     inner join postcode p on l.loc_pos_id = p.pos_id
                                     inner join categorie_evenement ce on evenement.eve_id = ce.cev_eve_id
-                                    inner join categorie c on ce.cev_cat_id = c.cat_id ".$where);
+                                    inner join categorie c on ce.cev_cat_id = c.cat_id ".$where."
+                                    order by eve_begindatum");
             ReplaceContent($data,$template);
             ?>
         </section>
