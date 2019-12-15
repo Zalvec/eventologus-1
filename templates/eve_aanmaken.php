@@ -116,6 +116,15 @@
                 <input type="file" name="eve_image" onchange="displayImage(this)" id="eve_image">
             </div>
 
+            <div class="check">
+                <input type="checkbox" name="GDPR" id="GDPR" required>
+                <label for="GDPR">Ik ga akkoord met de GDPR voorwaarden</label>
+            </div>
+            <div class="check">
+                <input type="checkbox" name="algemene_voorwaarden" id="algemene_voorwaarden" required>
+                <label for="algemene_voorwaarden">Ik ga akkoord met de algemene voorwaarden</label>
+            </div>
+
             <div class="beheerbutton">
                 <button type="submit" name="aanmaakbutton" value="Aanmaken">Evenement aanmaken</button>
             </div>

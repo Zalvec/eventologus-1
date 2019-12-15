@@ -5,12 +5,7 @@ $formname = $_POST["formname"];
 $tablename = $_POST["tablename"];
 $pkey = $_POST["pkey"];
 
-
-// empty strings needed to be able to use variables
-//$msg = "";
-//$css_class = "";
-
-
+//image wordt niet gesaved bij wijzigen (zowel een nieuwe als het oude)
 if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
     $image = $_FILES['eve_image'];
     $imagename = time().'_'.$image['name'];
