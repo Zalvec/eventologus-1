@@ -15,6 +15,7 @@ if ( $formname == "eve_wijzig_form" )
 
     move_uploaded_file($image['tmp_name'], $target);
 
+
     $sql_eve = "UPDATE $tablename_eve SET " .
         " eve_naam='" . htmlentities($_POST['eve_naam'], ENT_QUOTES) . "' , " .
         " eve_minprijs='" . $_POST['eve_minprijs'] . "' , " .
@@ -32,12 +33,11 @@ if ( $formname == "eve_wijzig_form" )
         " loc_nr='" . $_POST['loc_nr'] . "' , " .
         " loc_pos_id='" . $_POST['loc_pos_id'] . "' , " .
         " loc_gebouw='" . $_POST['loc_gebouw'] . "' 
-        where eve_id='" . $_POST['loc_id'] . "'";
+        where loc_id='" . $_POST['loc_id'] . "'";
 
 
     if ( ExecuteSQL($sql_eve) and ExecuteSQL($sql_loc)){
         $_SESSION['msg'] = 'Uw evenement is gewijzigd!' ;
-        //echo "<meta http-equiv='refresh' content='1;../index.php'>";
         header('Location: ../beheer.php');
         }
     else {

@@ -1,12 +1,8 @@
 <?php
-require_once "lib/autoload.php";
 
+    require_once "lib/autoload.php";
 
-?>
-<main class="container">
-    <ul class="categorieën_list">
-        <li><a href="categorie.php">Alle</a></li>
-    <?php
+    //Als GET leeg is wordt er geen specifieke categorie aangeroepen, als dat wel zo is moet er een where statement bij de SQL komen
     if (empty($_GET)){
         $where = "";
     } else {
@@ -18,39 +14,31 @@ require_once "lib/autoload.php";
             left join categorie_evenement ce on categorie.cat_id = ce.cev_cat_id
             group by cat_naam
             order by cat_id";
-    $data = GetData($sql);
-    $template =  LoadTemplate("catnav");
-    ReplaceContent($data, $template);
-?>
-    </ul>
-    <section class="contcontainer">
-        <?php
-        if (empty($where)){
-            $data = array();
-            $data['cat_naam'] = 'Alle';
-            $templateTitel = LoadTemplate('titel');
-            ReplaceContentRow($data, $templateTitel);
-        } else{
-            $data = GetData("select * from categorie 
+    //Navigatie categorieën printen
+    print ReplaceALLContent("catnav_item", "catnav", $sql);
+
+    //Als $where leeg is is er geen specifieke categoriepagina geladen, dus kunnen alle evenementen geladen worden
+    if (empty($where)){
+        $data = array();
+        $data['cat_naam'] = 'Alle';
+        $templateTitel = LoadTemplate('titel');
+        print ReplaceContentRow($data, $templateTitel);
+    //Anders worden enkel de evenementen van deze categorie geladen
+    } else {
+        $data = GetData("select * from categorie 
                             inner join categorie_evenement ce on categorie.cat_id = ce.cev_cat_id ".$where." limit 1");
-            $templateTitel = LoadTemplate('titel');
-            ReplaceContent($data,$templateTitel);
-        }
+        $templateTitel = LoadTemplate('titel');
+        print ReplaceContent($data,$templateTitel);
+    }
 
-        ?>
-        <section class="undertitle">
-            <?php
-            $template = LoadTemplate("categorie");
-            $data = GetData("select *, date_format(eve_begindatum, \"%e %b %Y\") begin_format, date_format(eve_einddatum, \"%e %b %Y\") eind_format  from evenement
-                                    inner join locatie l on evenement.eve_loc_id = l.loc_id
-                                    inner join postcode p on l.loc_pos_id = p.pos_id
-                                    inner join categorie_evenement ce on evenement.eve_id = ce.cev_eve_id
-                                    inner join categorie c on ce.cev_cat_id = c.cat_id ".$where."
-                                    order by eve_begindatum");
-            ReplaceContent($data,$template);
-            ?>
-        </section>
-    </section>
+    $sql = "select *, date_format(eve_begindatum, \"%e %b %Y\") begin_format, date_format(eve_einddatum, \"%e %b %Y\") eind_format  from evenement
+                            inner join locatie l on evenement.eve_loc_id = l.loc_id
+                            inner join postcode p on l.loc_pos_id = p.pos_id
+                            inner join categorie_evenement ce on evenement.eve_id = ce.cev_eve_id
+                            inner join categorie c on ce.cev_cat_id = c.cat_id ".$where.
+                            " order by eve_minprijs";
+    print ReplaceALLContent("categorie", "undertitle", $sql);
 
-</main>
-<?php print LoadTemplate("basic_footer"); ?>
+    print LoadTemplate("basic_footer");
+
+?>

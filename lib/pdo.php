@@ -53,4 +53,15 @@ function ExecuteSQL( $sql )
     else return false;
 }
 
+/* Checken of de MySQL query succesvol is uitgevoerd waar ExecuteSQL niet mogelijk is */
+
+function Check($tabel, $id, $veld){
+
+    $check = GetData("select * from $tabel where $veld =".$id);
+
+    if (empty($check)){
+        $_SESSION['msg'] = 'Er ging iets fout bij het aanmaken. Probeer opnieuw.';
+    };
+
+}
 
