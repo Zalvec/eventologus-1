@@ -14,8 +14,9 @@
             left join categorie_evenement ce on categorie.cat_id = ce.cev_cat_id
             group by cat_naam
             order by cat_id";
+    $data = GetData($sql);
     //Navigatie categorieën printen
-    print ReplaceALLContent("catnav_item", "catnav", $sql);
+    print ReplaceALLContent("catnav_item", "catnav", $data );
 
     //Als $where leeg is is er geen specifieke categoriepagina geladen, dus kunnen alle evenementen geladen worden
     if (empty($where)){
@@ -37,7 +38,15 @@
                             inner join categorie_evenement ce on evenement.eve_id = ce.cev_eve_id
                             inner join categorie c on ce.cev_cat_id = c.cat_id ".$where.
                             " order by eve_begindatum";
-    print ReplaceALLContent("categorie", "undertitle", $sql);
+    $data = GetData($sql);
+    foreach ($data as $row => $value) {
+        if ($value['eve_minprijs'] == 0) {
+            $data[$row]['prijs'] = "Gratis";
+        } else {
+            $data[$row]['prijs'] = "Tickets vanaf: €".$data[$row]['eve_minprijs']." VAT";
+        }
+    }
+    print ReplaceALLContent("categorie", "undertitle", $data);
 
     print LoadTemplate("basic_footer");
 

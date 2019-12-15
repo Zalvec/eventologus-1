@@ -17,7 +17,7 @@
 
     //Alle data uit postcode tabel in een select steken, de id van de geselecteerde gemeente wordt doorgegeven
     $sql = "select pos_id, pos_code, pos_gemeente from postcode order by pos_code";
-    $content = ReplaceALLContent("wijzigen_option_pos", "wijzigen_pos", $sql);
+    $content = ReplaceALLContent("wijzigen_option_pos", "wijzigen_pos", GetData($sql));
     $data1 = array("content" => $content);
     print ReplaceContentRow($data1, $template);
 

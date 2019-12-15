@@ -13,8 +13,16 @@
         inner join categorie c on ce.cev_cat_id = c.cat_id
         order by RAND()
         limit 3";
+    $data = GetData($sql);
+    foreach ($data as $row => $value) {
+        if ($value['eve_minprijs'] == 0) {
+            $data[$row]['prijs'] = "Gratis";
+        } else {
+            $data[$row]['prijs'] = "Tickets vanaf: €".$data[$row]['eve_minprijs']." VAT";
+        }
+    }
     //Vervang velden in template 'uitgelicht' door resultaten query, vervang dan velden in undertitle door content van uitgelicht
-    print ReplaceALLContent("uitgelicht", "undertitle", $sql);
+    print ReplaceALLContent("uitgelicht", "undertitle", $data);
 
     print LoadTemplate('window');
 
@@ -46,7 +54,15 @@
                 where cat_naam = '".$cat_naam."' 
                 order by eve_begindatum
                 limit 3";
-        print ReplaceALLContent("categorie", "undertitle", $sql);
+        $data = GetData($sql);
+        foreach ($data as $row => $value) {
+            if ($value['eve_minprijs'] == 0) {
+                $data[$row]['prijs'] = "Gratis";
+            } else {
+                $data[$row]['prijs'] = "Tickets vanaf: €".$data[$row]['eve_minprijs']." VAT";
+            }
+        }
+        print ReplaceALLContent("categorie", "undertitle", $data);
     }
 
     print LoadTemplate("basic_footer");

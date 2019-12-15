@@ -13,6 +13,13 @@
             order by eve_begindatum";
 
     $data = GetData($sql);
+    foreach ($data as $row => $value) {
+        if ($value['eve_minprijs'] == 0) {
+            $data[$row]['prijs'] = "Gratis";
+        } else {
+            $data[$row]['prijs'] = "Tickets vanaf: €".$data[$row]['eve_minprijs']." VAT";
+        }
+    }
 
     //Geef de evenementen van de gebruiker weer, als er geen zijn wordt een boodschap weergegeven
     $template = LoadTemplate("eve_uwevenementen");
@@ -26,7 +33,7 @@
     print ReplaceContentRow($data, $template);
 
     //Formulier om evenement aan te maken
-    print LoadTemplate("eve_aanmaken");
+    include LoadTemplate("eve_aanmaken");
 
     print LoadTemplate("basic_footer");
 
