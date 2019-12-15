@@ -14,8 +14,16 @@
                         inner join postcode p on l.loc_pos_id = p.pos_id
                         inner join categorie_evenement ce on evenement.eve_id = ce.cev_eve_id
                         inner join categorie c on ce.cev_cat_id = c.cat_id
+                        inner join user u on evenement.eve_use_id = u.use_id
                         where eve_id = $id";
                 $data = GetData($sql);
+                foreach ($data as $row => $value) {
+                    if ($value['eve_minprijs'] == 0) {
+                        $data[$row]['prijs'] = "! Gratis !";
+                    } else {
+                        $data[$row]['prijs'] = "Tickets vanaf: €".$data[$row]['eve_minprijs']." VAT";
+                    }
+                }
                 $template = LoadTemplate('detail');
                 print ReplaceContent($data, $template );
 

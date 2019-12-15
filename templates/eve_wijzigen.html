@@ -1,16 +1,11 @@
 <section class="contcontainer beheer">
-    <section class="afbeelding">
-
-        <label for="eve_image">Afbeelding</label>
-        <img src="images/@@eve_image@@" onclick="triggerClick()" id="display">
-        <input type="file" name="eve_image" onchange="displayImage(this)" id="eve_image">
-        <script src="js/scripts.js"></script>
-
-
-        <a class="verwijder" href="lib/verwijder.php?@@eve_id@@">Verwijder evenement</a>
-    </section>
-    <section class="wijzig">
-        <form method="post" action="lib/wijzigen.php"  class="wijzigform">
+    <form method="post" action="lib/wijzigen.php"  class="wijzigform" enctype="multipart/form-data">
+        <section class="wijzig">
+            <section class="afbeelding">
+                <label for="eve_image">Afbeelding</label>
+                <img src="images/placeholder.png" onclick="triggerClick()" id="display">
+                <input type="file" name="eve_image" onchange="displayImage(this)" id="eve_image">
+            </section>
             <input type="hidden" id="formname" name="formname" value="eve_wijzig_form">
             <input type="hidden" id="tablename_eve" name="tablename_eve" value="evenement">
             <input type="hidden" id="tablename_loc" name="tablename_loc" value="locatie">
@@ -67,7 +62,9 @@
             </div>
             <div class="beheerbutton">
                 <button type="submit" value="Wijzigingen toepassen">Wijzigingen toepassen</button>
+                <a class="verwijder" href="lib/verwijder.php?@@eve_id@@">Verwijder evenement</a>
             </div>
+        </section>
         </form>
-    </section>
 </section>
+<script src="js/scripts.js"></script>

@@ -15,6 +15,11 @@ if ( $formname == "eve_wijzig_form" )
 
     move_uploaded_file($image['tmp_name'], $target);
 
+    if (!isset($_POST['loc_pos_id'])){
+        $sql_pos = "";
+    } else {
+        $sql_pos = " loc_pos_id='" . $_POST['loc_pos_id'] . "' , " ;
+    }
 
     $sql_eve = "UPDATE $tablename_eve SET " .
         " eve_naam='" . htmlentities($_POST['eve_naam'], ENT_QUOTES) . "' , " .
@@ -28,10 +33,12 @@ if ( $formname == "eve_wijzig_form" )
         " eve_beschrijving='" . $_POST['eve_beschrijving'] . "' 
         where eve_id='" . $_POST['eve_id'] . "'";
 
+
+
     $sql_loc = "UPDATE $tablename_loc, $tablename_eve SET " .
         " loc_straat='" . $_POST['loc_straat']. "' , " .
         " loc_nr='" . $_POST['loc_nr'] . "' , " .
-        " loc_pos_id='" . $_POST['loc_pos_id'] . "' , " .
+        $sql_pos.
         " loc_gebouw='" . $_POST['loc_gebouw'] . "' 
         where loc_id='" . $_POST['loc_id'] . "'";
 

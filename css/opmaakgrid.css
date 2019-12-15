@@ -253,6 +253,8 @@ h2{
     padding: 1em 0;
 }
 
+.tickets{ font-weight: 600; }
+
 .beschrijving{ border-bottom: 1px solid #CBDEF4; }
 
 
@@ -325,7 +327,7 @@ h2{
     text-align: center;
 }
 
-.detail p:first-of-type{ padding: 0; }
+.detail p:first-of-type{ padding: 1em 0; }
 
 .date{padding: 0}
 
@@ -485,17 +487,21 @@ h2{
 
 .verwijder{
     background: orangered;
-    padding: 1em;
+    padding:1em;
+    font-size: .7em;
     border-radius: 4px;
     text-decoration: none;
-    color: white;
+    color: #dee8f4;
     display: inline-block;
     margin: 1em 0;
     text-align: center;
     transition: background 500ms;
 }
 
-.verwijder:hover{ background: darkred; }
+.verwijder:hover{
+    border: 1px solid darkred;
+    color: #dee8f4;
+}
 
 .afbeelding,
 .toevoegen{
@@ -570,7 +576,7 @@ h2{
 .checkbox{
     display: flex;
     align-items: center;
-    margin: 1em 0 .5em 0;
+    margin: 1em 0;
 }
 
 
@@ -596,11 +602,11 @@ h2{
     .beheer{
         display: flex;
         flex-direction: row;
+        justify-content: center;
         background: #CBDEF4;
         border-radius: 5px;
         padding: 1em;
     }
-    .afbeelding,
     .toevoegen{width: 30%;}
 
     .afbeelding img,
@@ -629,6 +635,8 @@ h2{
     .detail .foto{
         display: flex;
         align-items: center;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .detail img{
@@ -644,7 +652,8 @@ h2{
 /* Footer stijlen -------------------------------------------------------------------------------------- */
 
 footer{
-    background: #CBDEF4;
+    background: url(../images/shutterstock_538256848.jpg) center/cover no-repeat;
+    background-attachment: fixed;
     padding: 1em;
     min-height: 100px;
     margin-top: 1em;
@@ -652,4 +661,6 @@ footer{
     bottom: 0;
     left: 0;
     right: 0;
+    color: white;
+    text-shadow:.5px .5px darkgrey ;
 }
