@@ -1,7 +1,7 @@
 <?php
 
     //Als de gebruiker als ingelogd is heeft hij geen toegang tot de pagina
-    require_once "lib/autoload_lib.php";
+    require_once "lib/autoload.php";
     if( isset($_SESSION['user'])){
         $_SESSION['msg'] =  "Je bent al ingelogd.";
         header("Location: beheer.php");

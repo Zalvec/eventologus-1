@@ -62,10 +62,9 @@ function PrintNavBar(){
 
 /* Functie om replace content uit te voeren voor twee templates die bij elkaar horen */
 
-function ReplaceALLContent($tempItems, $tempAll, $sql){
+function ReplaceALLContent($tempItems, $tempAll, $data){
 
     $template = LoadTemplate($tempItems);
-    $data = GetData($sql);
     $content =  ReplaceContent($data, $template);
     $data = array("content" => $content);
     $template =  LoadTemplate("$tempAll");
@@ -80,8 +79,8 @@ function LoadTemplate( $name )
     }
      if (file_exists("../templates/$name.html")) {
         return file_get_contents("templates/$name.html");
-    } else{
-        return file_get_contents("templates/$name.php");
+    } else {
+        return ("templates/$name.php");
     }
 }
 
