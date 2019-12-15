@@ -9,7 +9,7 @@
                 // Replace content voor de beschrijving en foto
                 foreach ($_GET as $id => $niks){
                 };
-                $sql = "select *, date_format(eve_begindatum, \"%e %b %Y\") begin_format, date_format(eve_einddatum, \"%e %b %Y\") eind_format from evenement
+                $sql = "select *, use_organisator, date_format(eve_begindatum, \"%e %b %Y\") begin_format, date_format(eve_einddatum, \"%e %b %Y\") eind_format from evenement
                         inner join locatie l on evenement.eve_loc_id = l.loc_id
                         inner join postcode p on l.loc_pos_id = p.pos_id
                         inner join categorie_evenement ce on evenement.eve_id = ce.cev_eve_id
