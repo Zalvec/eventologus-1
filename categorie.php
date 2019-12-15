@@ -36,7 +36,7 @@
                             inner join postcode p on l.loc_pos_id = p.pos_id
                             inner join categorie_evenement ce on evenement.eve_id = ce.cev_eve_id
                             inner join categorie c on ce.cev_cat_id = c.cat_id ".$where.
-                            " order by eve_minprijs";
+                            " order by eve_begindatum";
     print ReplaceALLContent("categorie", "undertitle", $sql);
 
     print LoadTemplate("basic_footer");

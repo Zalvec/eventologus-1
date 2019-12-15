@@ -44,6 +44,7 @@
                 inner join categorie_evenement ce on evenement.eve_id = ce.cev_eve_id
                 inner join categorie c on ce.cev_cat_id = c.cat_id
                 where cat_naam = '".$cat_naam."' 
+                order by eve_begindatum
                 limit 3";
         print ReplaceALLContent("categorie", "undertitle", $sql);
     }

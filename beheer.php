@@ -9,7 +9,8 @@
             inner join user u on evenement.eve_use_id = u.use_id
             inner join locatie l on evenement.eve_loc_id = l.loc_id
             inner join postcode p on l.loc_pos_id = p.pos_id
-            where use_email = '". $_SESSION["user"]["use_email"]."'";
+            where use_email = '". $_SESSION["user"]["use_email"]."'
+            order by eve_begindatum";
     $data = GetData($sql);
 
     //Geef de evenementen van de gebruiker weer, als er geen zijn wordt een boodschap weergegeven
