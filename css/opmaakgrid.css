@@ -549,6 +549,12 @@ h2{
 }
 .rest{ min-width: 752px; }
 
+.check { margin: .5em 0; }
+
+.check #GDPR { margin-top: 2em; }
+
+.check #algemene_voorwaarden { margin-bottom: 2em; }
+
 @media screen and (min-width: 1000px) {
     .beheer{
         display: flex;
