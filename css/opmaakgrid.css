@@ -113,7 +113,7 @@ header{
     align-items: center;
 }
 
-#header h2{
+#header h1{
     color: #CBDEF4;
     font-size: 2rem;
     background: rgba(71, 100, 132, 0.8);
@@ -323,6 +323,7 @@ h2{
 
 .detail h1{
     text-align: center;
+    font-size: 1.5rem;
 }
 
 
