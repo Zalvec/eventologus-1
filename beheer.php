@@ -4,7 +4,7 @@ require_once "lib/autoload.php";
     //Het is niet mogelijk als niet aangemelde gebruiker de beheerpagina te openen
     if(!isset($_SESSION['user'])){
         $_SESSION['msg'] = 'Log u eerst in';
-        echo "<meta http-equiv=\"refresh\" content=\"0; URL=index.php\">";
+        echo "<meta http-equiv=\"refresh\" content=\"0; URL=login.php\">";
     }
     if (isset($_SESSION['user'])) {
 
