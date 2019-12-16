@@ -92,9 +92,19 @@ div.message{
     color: #CBDEF4;
     text-align: center;
     padding: 1em 0;
+    transition: display 500ms ease;
 }
 
+#right{
+    width: 55%;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1em;
+}
 
+#message a{
+    color: white;
+}
 
 /* Nav stijlen -------------------------------------------------------------------------------------- */
 

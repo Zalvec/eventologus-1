@@ -2,6 +2,11 @@ function triggerClick() {
     document.querySelector('#eve_image').click();
 }
 
+function Hide(HideID)
+{
+    HideID.style.display = "none";
+}
+
 function displayImage(e) {
     if (e.files[0]) {
         var reader = new FileReader();
