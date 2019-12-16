@@ -40,9 +40,12 @@ require_once "lib/autoload.php";
 
         //Formulier om evenement aan te maken
         include LoadTemplate("eve_aanmaken");
+
+        //Als een van de beheerders is aangemeld wordt de button om gepasseerde evenementen te verwijderen, weergegeven
         if ($_SESSION['user']["use_email"] == 'nathanz@nathan.be' or $_SESSION['user']["use_email"] == 'roel.van.bilzen@gmail.com') {
             print LoadTemplate("verwijder_gepasseerd");
         }
+
         print LoadTemplate("basic_footer");
     }
 ?>

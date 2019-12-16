@@ -634,6 +634,20 @@ strong{ font-weight: 600; }
 
 .pos_wijzigen{ font-size: .9rem; }
 
+.verwijder_gep{
+    display: block;
+    text-align: center;
+    padding: 2em;
+    background: lightgrey;
+    border-radius: 5px;
+    transition: background 500ms ease;
+}
+
+.verwijder_gep:hover{
+    background: darkgrey;
+}
+
+
 @media screen and (min-width: 1000px) {
     .rest{
         min-width: 752px;
@@ -690,6 +704,7 @@ strong{ font-weight: 600; }
 
 
 }
+
 /* Footer stijlen -------------------------------------------------------------------------------------- */
 
 footer{
