@@ -11,16 +11,16 @@
 
             <div class="invul">
                 <label for="eve_naam">Naam</label>
-                <input type="text" name="eve_naam" id="eve_naam" placeholder="Naam..." required>
+                <input type="text" name="eve_naam" id="eve_naam" placeholder="Naam..." required oninvalid="this.setCustomValidity('Gelieve een naam voor het evenement in te geven')" oninput="setCustomValidity('')">
             </div>
             <div class="invul">
                 <fieldset>
                     <legend>Locatie</legend>
                     <label for="loc_straat" hidden>Straat</label>
-                    <input id="loc_straat" placeholder="Straat..." name="loc_straat" required>
+                    <input id="loc_straat" placeholder="Straat..." name="loc_straat" required oninvalid="this.setCustomValidity('Gelieve een straatnaam in te geven')" oninput="setCustomValidity('')">
                     <label for="loc_nr" hidden>Nummer</label>
                     <input id="loc_nr" placeholder="Huisnr..." name="loc_nr">
-                    <select name="loc_pos_id" id='loc_pos_id' required>
+                    <select name="loc_pos_id" id='loc_pos_id' required oninvalid="this.setCustomValidity('Gelieve een postcode te selecteren')" oninput="setCustomValidity('')">
                         <?php
                         $sql = "select pos_id, pos_code, pos_gemeente from postcode order by pos_code";
                         $data_pos = GetData($sql);
@@ -44,27 +44,27 @@
                         <label for="check">Gratis</label>
                     </div>
                     <label for="eve_minprijs" hidden>Min. prijs</label>
-                    <input type="text" name="eve_minprijs" id="eve_minprijs" placeholder="Minimum..." required>
+                    <input type="number" name="eve_minprijs" id="eve_minprijs" placeholder="Minimum..." required oninvalid="this.setCustomValidity('Gelieve de minimumprijs in te stellen of GRATIS aan te vinken. Gebruik hiervoor 0-9 , en .')" oninput="setCustomValidity('')">
                     <label for="eve_maxprijs" hidden>Max. prijs</label>
-                    <input type="text" name="eve_maxprijs" id="eve_maxprijs" placeholder="Maximum..." required>
+                    <input type="number" name="eve_maxprijs" id="eve_maxprijs" placeholder="Maximum..." required oninvalid="this.setCustomValidity('Gelieve de maximumprijs in te stellen. Gebruik hiervoor 0-9 , en .')" oninput="setCustomValidity('')">
                 </fieldset>
             </div>
             <div class="invul">
                 <fieldset>
                     <legend>Datum</legend>
                     <label for="eve_begindatum" hidden>Begindatum</label>
-                    <input type="date" name="eve_begindatum" id="eve_begindatum" placeholder="Begindatum..." required>
+                    <input type="date" name="eve_begindatum" id="eve_begindatum" placeholder="Begindatum..." required oninvalid="this.setCustomValidity('Gelieve de begindatum in te stellen')" oninput="setCustomValidity('')">
                     <label for="eve_einddatum" hidden>Einddatum</label>
-                    <input type="date" name="eve_einddatum" id="eve_einddatum" placeholder="Einddatum..." required>
+                    <input type="date" name="eve_einddatum" id="eve_einddatum" placeholder="Einddatum..." required oninvalid="this.setCustomValidity('Gelieve de einddatum in te stellen')" oninput="setCustomValidity('')">
                 </fieldset>
             </div>
             <div class="invul">
                 <fieldset>
                     <legend>Tijd</legend>
                     <label for="eve_opening" hidden>Beginuur</label>
-                    <input type="time" name="eve_opening" id="eve_opening" placeholder="Beginuur..." required>
+                    <input type="time" name="eve_opening" id="eve_opening" placeholder="Beginuur..." required oninvalid="this.setCustomValidity('Gelieve het beginuur in te vullen')" oninput="setCustomValidity('')">
                     <label for="eve_sluiting" hidden>Einduur</label>
-                    <input type="time" name="eve_sluiting" id="eve_sluiting" placeholder="Sluituur..." required>
+                    <input type="time" name="eve_sluiting" id="eve_sluiting" placeholder="Sluituur..." required oninvalid="this.setCustomValidity('Gelieve het einduur in te vullen')" oninput="setCustomValidity('')">
                 </fieldset>
             </div>
             <div class="invul">
@@ -92,7 +92,7 @@
             </div>
             <div class="invul">
                 <legend>Categorie</legend>
-                <select name="cev_cat_id" id='cev_cat_id' required>
+                <select name="cev_cat_id" id='cev_cat_id' required oninvalid="this.setCustomValidity('Gelieve de categorie te selecteren')" oninput="setCustomValidity('')">
                     <?php
                     $sql = "select * from categorie order by cat_naam";
                     $data_cat = GetData($sql);
@@ -107,7 +107,7 @@
             </div>
             <div class="invul">
                 <label for="eve_beschrijving">Beschrijving</label>
-                <textarea name="eve_beschrijving" id="eve_beschrijving" required></textarea>
+                <textarea name="eve_beschrijving" id="eve_beschrijving" required oninvalid="this.setCustomValidity('Gelieve je evenement van een beschrijving te voorzien')" oninput="setCustomValidity('')"></textarea>
             </div>
 
             <div class="invul">
@@ -117,11 +117,11 @@
             </div>
 
             <div class="check">
-                <input type="checkbox" name="GDPR" id="GDPR" required>
+                <input type="checkbox" name="GDPR" id="GDPR" required oninvalid="this.setCustomValidity('Gelieve akkoord te gaan met de GDPR voorwaarden voor u het evement kan aanmaken')" oninput="setCustomValidity('')">
                 <label for="GDPR">Ik ga akkoord met de GDPR voorwaarden</label>
             </div>
             <div class="check">
-                <input type="checkbox" name="algemene_voorwaarden" id="algemene_voorwaarden" required>
+                <input type="checkbox" name="algemene_voorwaarden" id="algemene_voorwaarden" required oninvalid="this.setCustomValidity('Gelieve akkoord te gaan met onze algemene voorwaarden voor u het evement kan aanmaken')" oninput="setCustomValidity('')">
                 <label for="algemene_voorwaarden">Ik ga akkoord met de algemene voorwaarden</label>
             </div>
 
