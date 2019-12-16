@@ -15,13 +15,9 @@ if ( $formname == "eve_wijzig_form" )
 
     move_uploaded_file($image['tmp_name'], $target);
 
-    if (!isset($_POST['loc_pos_id'])){
-        $sql_pos = "";
-    } else {
-        $sql_pos = " loc_pos_id='" . $_POST['loc_pos_id'] . "' , " ;
-    }
-
-    $sql_eve = "UPDATE $tablename_eve SET " .
+    //Als er geen nieuwe image wordt geupload, de naam in de tabel niet aanpassen
+    if (empty($_FILES['eve_image']['name'])){
+        $sql_eve = "UPDATE $tablename_eve SET " .
         " eve_naam='" . htmlentities($_POST['eve_naam'], ENT_QUOTES) . "' , " .
         " eve_minprijs='" . $_POST['eve_minprijs'] . "' , " .
         " eve_maxprijs='" . $_POST['eve_maxprijs'] . "' , " .
@@ -29,9 +25,27 @@ if ( $formname == "eve_wijzig_form" )
         " eve_einddatum='" . $_POST['eve_einddatum'] . "' , " .
         " eve_opening='" . $_POST['eve_opening'] . "' , " .
         " eve_sluiting='" . $_POST['eve_sluiting'] . "' , " .
-        "eve_image='" . $imagename . "' , " .
-        " eve_beschrijving='" . $_POST['eve_beschrijving'] . "' 
+        " eve_beschrijving='" . $_POST['eve_beschrijving'] . "'
         where eve_id='" . $_POST['eve_id'] . "'";
+    } else {
+        $sql_eve = "UPDATE $tablename_eve SET " .
+            " eve_naam='" . htmlentities($_POST['eve_naam'], ENT_QUOTES) . "' , " .
+            " eve_minprijs='" . $_POST['eve_minprijs'] . "' , " .
+            " eve_maxprijs='" . $_POST['eve_maxprijs'] . "' , " .
+            " eve_begindatum='" . $_POST['eve_begindatum'] . "' , " .
+            " eve_einddatum='" . $_POST['eve_einddatum'] . "' , " .
+            " eve_opening='" . $_POST['eve_opening'] . "' , " .
+            " eve_sluiting='" . $_POST['eve_sluiting'] . "' , " .
+            "eve_image='" . $imagename . "' , " .
+            " eve_beschrijving='" . $_POST['eve_beschrijving'] . "' 
+        where eve_id='" . $_POST['eve_id'] . "'";
+    }
+
+    if (!isset($_POST['loc_pos_id'])){
+        $sql_pos = "";
+    } else {
+        $sql_pos = " loc_pos_id='" . $_POST['loc_pos_id'] . "' , " ;
+    }
 
 
 

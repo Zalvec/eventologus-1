@@ -1,50 +1,46 @@
-<main>
-    <form method="post" action="lib/register.php">
+<form method="post" action="lib/register.php">
 
-        <input type="hidden" id="formname" name="formname" value="registration_form">
-        <input type="hidden" id="tablename" name="tablename" value="user">
-        <input type="hidden" id="pkey" name="pkey" value="user_id">
+    <input type="hidden" id="formname" name="formname" value="registration_form">
+    <input type="hidden" id="tablename" name="tablename" value="user">
+    <input type="hidden" id="pkey" name="pkey" value="user_id">
 
-        <section class="container">
-            <section class="contcontainerform formulier">
-                <section class="form">
-                    <h1>Registratie</h1>
-                    <div class="invul">
-                        <label for="use_voornaam">Voornaam</label>
-                        <input type="text" name="use_voornaam" id="use_voornaam" placeholder="Voornaam..." required>
-                    </div>
-                    <div class="invul">
-                        <label for="use_achternaam">Achternaam</label>
-                        <input type="text" name="use_achternaam" id="use_achternaam" placeholder="Achternaam..." required>
-                    </div>
-                    <div class="invul">
-                        <label for="use_geboortedatum">Geboortedatum</label>
-                        <input type="date" name="use_geboortedatum" id="use_geboortedatum" placeholder="Geboortedatum..." required>
-                    </div>
-                    <div class="invul">
-                        <label for="use_organisator">Organisator</label>
-                        <input type="text" name="use_organisator" id="use_organisator" placeholder="Organisator..." required>
-                    </div>
-                    <div class="invul">
-                        <label for="use_email">Email</label>
-                        <input type="email" name="use_email" id="use_email" placeholder="voorbeeld@voorbeeld.be" required>
-                    </div>
-                    <div class="invul">
-                        <label for="use_wachtwoord">Wachtwoord</label>
-                        <input type="password" name="use_wachtwoord" id="use_wachtwoord" placeholder="Minstens 8 karakters..." required>
-                    </div>
-                    <div class="invul check">
-                        <input type="checkbox" name="GDPR" id="GDPR" required>
-                        <label for="GDPR">Ik ga akkoord met de GDPR voorwaarden</label>
-                    </div>
-                    <div class="invul check">
-                        <input type="checkbox" name="algemene_voorwaarden" id="algemene_voorwaarden" required>
-                        <label for="algemene_voorwaarden">Ik ga akkoord met de algemene voorwaarden</label>
-                    </div>
-                    <input name="registerbutton" type="submit" value="Registreer">
-                    <p>Al lid? <a href="login.php">Log hier in...</a></p>
-                </section>
+        <section class="contcontainerform formulier">
+            <section class="form">
+                <h1>Registratie</h1>
+                <div class="invul">
+                    <label for="use_voornaam">Voornaam</label>
+                    <input type="text" name="use_voornaam" id="use_voornaam" placeholder="Voornaam..." required>
+                </div>
+                <div class="invul">
+                    <label for="use_achternaam">Achternaam</label>
+                    <input type="text" name="use_achternaam" id="use_achternaam" placeholder="Achternaam..." required>
+                </div>
+                <div class="invul">
+                    <label for="use_geboortedatum">Geboortedatum</label>
+                    <input type="date" name="use_geboortedatum" id="use_geboortedatum" placeholder="Geboortedatum..." required>
+                </div>
+                <div class="invul">
+                    <label for="use_organisator">Organisator</label>
+                    <input type="text" name="use_organisator" id="use_organisator" placeholder="Organisator..." required>
+                </div>
+                <div class="invul">
+                    <label for="use_email">Email</label>
+                    <input type="email" name="use_email" id="use_email" placeholder="voorbeeld@voorbeeld.be" required>
+                </div>
+                <div class="invul">
+                    <label for="use_wachtwoord">Wachtwoord</label>
+                    <input type="password" name="use_wachtwoord" id="use_wachtwoord" placeholder="Minstens 8 karakters..." required>
+                </div>
+                <div class="invul check">
+                    <input type="checkbox" name="GDPR" id="GDPR" required>
+                    <label for="GDPR">Ik ga akkoord met de GDPR voorwaarden</label>
+                </div>
+                <div class="invul check">
+                    <input type="checkbox" name="algemene_voorwaarden" id="algemene_voorwaarden" required>
+                    <label for="algemene_voorwaarden">Ik ga akkoord met de algemene voorwaarden</label>
+                </div>
+                <input name="registerbutton" type="submit" value="Registreer">
+                <p>Al lid? <a href="login.php">Log hier in...</a></p>
             </section>
         </section>
-    </form>
-</main>
+</form>

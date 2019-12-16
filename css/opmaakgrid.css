@@ -552,6 +552,18 @@ h2{
     cursor: pointer;
 }
 
+.loc_pos_id{
+    display:inline-block;
+    width: 100%;
+}
+
+strong{ font-weight: 600; }
+
+.afbeeldingform #display{
+    height: 300px;
+    width: 300px;
+}
+
 .invul input[type=file],
 .afbeelding input[type=file] { display: none;}
 
@@ -610,9 +622,17 @@ h2{
 
 .check { margin: .5em 0; }
 
-.check #GDPR { margin-top: 2em; }
+.check #GDPR {
+    margin-top: 2em;
+    width: 20px;
+}
 
-.check #algemene_voorwaarden { margin-bottom: 2em; }
+.check #algemene_voorwaarden {
+    margin-bottom: 2em;
+    width: 20px;
+}
+
+.pos_wijzigen{ font-size: .9rem; }
 
 @media screen and (min-width: 1000px) {
     .rest{
