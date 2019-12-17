@@ -15,10 +15,11 @@
             group by cat_naam
             order by cat_id";
     $data = GetData($sql);
+
     //Navigatie categorieën printen
     print ReplaceALLContent("catnav_item", "catnav", $data );
 
-    //Als $where leeg is is er geen specifieke categoriepagina geladen, dus kunnen alle evenementen geladen worden
+    //Als $where leeg is, is er geen specifieke categoriepagina geladen, dus kunnen alle evenementen geladen worden
     if (empty($where)){
         $data = array();
         $data['cat_naam'] = 'Alle';
@@ -32,12 +33,15 @@
         print ReplaceContent($data,$templateTitel);
     }
 
+    //Alle evenementen laden van een specifieke $where, gesorteerd op begindatum
     $sql = "select *, date_format(eve_begindatum, \"%e %b %Y\") begin_format, date_format(eve_einddatum, \"%e %b %Y\") eind_format  from evenement
                             inner join locatie l on evenement.eve_loc_id = l.loc_id
                             inner join postcode p on l.loc_pos_id = p.pos_id
                             inner join categorie_evenement ce on evenement.eve_id = ce.cev_eve_id
                             inner join categorie c on ce.cev_cat_id = c.cat_id ".$where.
                             " order by eve_begindatum";
+
+    //Geeft 'gratis' weer als de eve_minprijs 0 is, anders krijg je een tekst met de eve_minprijs in
     $data = GetData($sql);
     foreach ($data as $row => $value) {
         if ($value['eve_minprijs'] == 0) {
@@ -46,6 +50,7 @@
             $data[$row]['prijs'] = "Tickets vanaf: €".$data[$row]['eve_minprijs']." VAT";
         }
     }
+    //Alle data wordt gereplaced in de categorie.html ingevuld en daarna wordt deze data gereplaced in de undertitle.html
     print ReplaceALLContent("categorie", "undertitle", $data);
 
     print LoadTemplate("basic_footer");

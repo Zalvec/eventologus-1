@@ -4,13 +4,15 @@ require_once "lib/autoload.php";
     //Het is niet mogelijk als niet aangemelde gebruiker de beheerpagina te openen
     if(!isset($_SESSION['user'])){
         $_SESSION['msg'] = 'Log u eerst in';
-        echo "<meta http-equiv=\"refresh\" content=\"0; URL=login.php\">";
+        echo "<meta http-equiv=\"refresh\" content=\"0; URL=index.php\">";
     }
+
     if (isset($_SESSION['user'])) {
 
         //MainTitle printen
         print "<h2 class=\"maintitle\">Uw evenementen</h2>";
 
+        //SQL-code om alle evenementen die zijn aangemaakt door de ingelogde user, gesorteerd op begindatum, te selecteren
         $sql = "select * from evenement
             inner join user u on evenement.eve_use_id = u.use_id
             inner join locatie l on evenement.eve_loc_id = l.loc_id
@@ -18,6 +20,7 @@ require_once "lib/autoload.php";
             where use_email = '" . $_SESSION["user"]["use_email"] . "'
             order by eve_begindatum";
 
+        //Geeft 'gratis' weer als de eve_minprijs 0 is, anders krijg je een tekst met de eve_minprijs in
         $data = GetData($sql);
         foreach ($data as $row => $value) {
             if ($value['eve_minprijs'] == 0) {
@@ -45,7 +48,6 @@ require_once "lib/autoload.php";
         if ($_SESSION['user']["use_email"] == 'nathanz@nathan.be' or $_SESSION['user']["use_email"] == 'roel.van.bilzen@gmail.com') {
             print LoadTemplate("verwijder_gepasseerd");
         }
-
         print LoadTemplate("basic_footer");
     }
 ?>
