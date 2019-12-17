@@ -48,7 +48,7 @@
         if ($value['eve_minprijs'] == 0) {
             $data[$row]['prijs'] = "Gratis";
         } else {
-            $data[$row]['prijs'] = "Tickets vanaf: €".$data[$row]['eve_minprijs']." VAT";
+            $data[$row]['prijs'] = "Tickets vanaf: €".$data[$row]['eve_minprijs'];
         }
     }
     //Alle data wordt gereplaced in de categorie.html ingevuld en daarna wordt deze data gereplaced in de undertitle.html
