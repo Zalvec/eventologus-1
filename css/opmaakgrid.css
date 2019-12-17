@@ -53,6 +53,8 @@ main{padding-bottom: 110px;}
 
 /* Zoeken stijlen */
 
+.geen_zoek{padding-top: 2em;}
+
 .zoeken{
     margin-top: 1em;
     text-align: right;

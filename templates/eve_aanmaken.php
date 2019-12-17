@@ -94,7 +94,7 @@
                 <legend>Categorie</legend>
                 <select name="cev_cat_id" id='cev_cat_id' required oninvalid="this.setCustomValidity('Gelieve de categorie te selecteren')" oninput="setCustomValidity('')">
                     <?php
-                    $sql = "select * from categorie order by cat_naam";
+                    $sql = "select * from categorie order by cat_id";
                     $data_cat = GetData($sql);
                     ?>
                     <option value='' disabled selected>Selecteer de categorie..</option>

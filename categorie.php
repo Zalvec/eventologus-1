@@ -1,7 +1,7 @@
 <?php
 
     require_once "lib/autoload.php";
-
+    $cat_id = $_GET;
     //Als GET leeg is wordt er geen specifieke categorie aangeroepen, als dat wel zo is moet er een where statement bij de SQL komen
     if (empty($_GET)){
         $where = "";
@@ -18,6 +18,7 @@
 
     //Navigatie categorieën printen
     print ReplaceALLContent("catnav_item", "catnav", $data );
+    print LoadTemplate('zoeken');
 
     //Als $where leeg is, is er geen specifieke categoriepagina geladen, dus kunnen alle evenementen geladen worden
     if (empty($where)){
