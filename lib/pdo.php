@@ -43,6 +43,7 @@ function GetData_LastID( $sql )
     return $rows;
 }
 
+//Functie om te checken of de SQL goed wordt uitgevoerd (boolean teruggegeven)
 function ExecuteSQL( $sql )
 {
     $pdo = GetConnection();

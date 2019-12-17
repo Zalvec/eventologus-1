@@ -60,16 +60,6 @@ function PrintNavBar(){
     }
 }
 
-/* Functie om replace content uit te voeren voor twee templates die bij elkaar horen */
-
-function ReplaceALLContent($tempItems, $tempAll, $data){
-
-    $template = LoadTemplate($tempItems);
-    $content =  ReplaceContent($data, $template);
-    $data = array("content" => $content);
-    $template =  LoadTemplate("$tempAll");
-    return ReplaceContentRow($data, $template);
-}
 
 /* Deze functie laadt de opgegeven template */
 function LoadTemplate( $name )
@@ -114,3 +104,13 @@ function ReplaceContentRow( $row, $template_html )
         return $content;
 }
 
+/* Functie om replace content uit te voeren voor twee templates die bij elkaar horen */
+
+function ReplaceALLContent($tempItems, $tempAll, $data){
+
+    $template = LoadTemplate($tempItems);
+    $content =  ReplaceContent($data, $template);
+    $data = array("content" => $content);
+    $template =  LoadTemplate("$tempAll");
+    return ReplaceContentRow($data, $template);
+}

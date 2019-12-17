@@ -6,16 +6,17 @@ $tablename_loc = $_POST["tablename_loc"];
 $tablename_eve = $_POST["tablename_eve"];
 $pkey = $_POST["pkey"];
 
-
+//Als de gegevens uit het juiste formulier komen
 if ( $formname == "eve_wijzig_form" )
 {
     $image = $_FILES['eve_image'];
     $imagename = time().'_'.$image['name'];
     $target = '../images/'.$imagename;
 
+    //De image in de juiste map zetten
     move_uploaded_file($image['tmp_name'], $target);
 
-    //Als er geen nieuwe image wordt geupload, de naam in de tabel niet aanpassen
+    //Als er geen nieuwe image wordt geupload wordt de naam niet aangepast
     if (empty($_FILES['eve_image']['name'])){
         $sql_eve = "UPDATE $tablename_eve SET " .
         " eve_naam='" . htmlentities($_POST['eve_naam'], ENT_QUOTES) . "' , " .
@@ -41,6 +42,7 @@ if ( $formname == "eve_wijzig_form" )
         where eve_id='" . $_POST['eve_id'] . "'";
     }
 
+    //Als de postcode niet wordt aangepast wordt deze in de databank ook niet aangepast
     if (!isset($_POST['loc_pos_id'])){
         $sql_pos = "";
     } else {
@@ -56,7 +58,7 @@ if ( $formname == "eve_wijzig_form" )
         " loc_gebouw='" . $_POST['loc_gebouw'] . "' 
         where loc_id='" . $_POST['loc_id'] . "'";
 
-
+    //Afhankelijk van of de query goed wordt uitgevoerd een message weergeven
     if ( ExecuteSQL($sql_eve) and ExecuteSQL($sql_loc)){
         $_SESSION['msg'] = 'Uw evenement is gewijzigd!' ;
         header('Location: ../beheer.php');

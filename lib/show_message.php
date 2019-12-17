@@ -1,4 +1,6 @@
 <?php
+
+//Functie om message weer te geven als er een is
 function ShowMessages()
 {
 

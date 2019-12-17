@@ -5,12 +5,13 @@ $formname = $_POST["formname"];
 $tablename = $_POST["tablename"];
 $pkey = $_POST["pkey"];
 
-//image wordt niet gesaved bij wijzigen (zowel een nieuwe als het oude)
+// Als de ingestuurde data van het juiste formulier komen
 if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
     $image = $_FILES['eve_image'];
     $imagename = time().'_'.$image['name'];
     $target = '../images/'.$imagename;
 
+    //De geuploade image in de juiste map plaatsen
     move_uploaded_file($image['tmp_name'], $target);
 
     $sql_loc = "INSERT INTO locatie SET " .
@@ -19,11 +20,13 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
         "loc_nr='" . $_POST['loc_nr'] . "' ," .
         "loc_pos_id='" . $_POST["loc_pos_id"] . "';";
 
+    //De laatst ingevoerde PK uit de tabel halen om deze in de volgende query te gebruiken
     $loc_id = GetData_LastID($sql_loc)['last_id'];
 
+    //Checken of de query wel is uitgevoerd
     Check('locatie', $loc_id, 'loc_id');
 
-
+    //Als het evenement gratis is wordt dat zo in de SQL gezet
     if (empty($_POST['eve_gratis'])) {
         $sql_eve = "INSERT INTO $tablename SET " .
             "eve_naam='" . $_POST['eve_naam'] . "' , " .
@@ -53,8 +56,10 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
             "eve_beschrijving=\"". $_POST['eve_beschrijving'] . "\" ";
     }
 
+    //Checken of de query wel is uitgevoerd
     $eve_id = GetData_LastID($sql_eve)['last_id'];
 
+    //Checken of de query wel is uitgevoerd
     Check($tablename ,$eve_id, 'eve_id');
 
     $sql_cat = "INSERT INTO categorie_evenement SET " .
@@ -68,10 +73,13 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
     $sql_som_name = "select som_name from socialmedia";
     $som = GetData($sql_som_name);
     $som_name = array();
+
+    //Een array maken van alle namen van de sociale media
     foreach ($som as $niks=>$array){
         $som_name[]= $array['som_name'];
     }
 
+    //Als de soort sociale media voorkomt in de $_POST wordt deze in de tabel gezet met de link
     foreach ($_POST as $key => $value){
 
         if (in_array($key,$som_name) and strlen($value) > 5){
@@ -86,6 +94,7 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
         }
     }
 
+    //Als alles goed is uitgevoerd een message weergeven
     if (!isset($_SESSION['msg'])){
         $_SESSION['msg'] = "Uw evenement is succesvol aangemaakt! U kan het bekijken en bewerken in het tabblad 'Beheer'.";
     }

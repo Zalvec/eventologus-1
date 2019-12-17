@@ -5,6 +5,7 @@ $formname = $_POST["formname"];
 $tablename = $_POST["tablename"];
 $pkey = $_POST["pkey"];
 
+//Als de gegevens uit het juiste formulier komen
 if ( $formname == "registration_form" AND $_POST['registerbutton'] == "Registreer" )
 {
     //controle of gebruiker al bestaat
@@ -32,6 +33,7 @@ if ( $formname == "registration_form" AND $_POST['registerbutton'] == "Registree
     //wachtwoord coderen
     $password_encrypted = password_hash ( $_POST["use_wachtwoord"] , PASSWORD_DEFAULT );
 
+    //De gegevens met het gecodeerde wachtwoord in de user tabel zetten
     $sql = "INSERT INTO $tablename SET " .
         " use_organisator='" . htmlentities($_POST['use_organisator'], ENT_QUOTES) . "' , " .
         " use_voornaam='" . $_POST['use_voornaam'] . "' , " .
@@ -40,6 +42,7 @@ if ( $formname == "registration_form" AND $_POST['registerbutton'] == "Registree
         " use_geboortedatum='" . $_POST['use_geboortedatum'] . "' , " .
         " use_wachtwoord='" . $password_encrypted . "'  " ;
 
+    //Afhankelijk van of de query goe wordt uitgevoerd message weergeven
     if ( ExecuteSQL($sql) ){
         $_SESSION['msg'] = "Bedankt voor uw registratie!" ;
         header('Location: ../index.php');
