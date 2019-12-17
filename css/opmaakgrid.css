@@ -141,7 +141,6 @@ div.message{
 
 /* Nav stijlen -------------------------------------------------------------------------------------- */
 
-
 header{
     min-height: 100px;
     background-image: url(../images/shutterstock_538256848.jpg);
@@ -197,7 +196,6 @@ nav#mainnav ul li a:hover{
     background: #5A6A83;
     color: #cbdef4;
 }
-
 
 #active{
     background: #5A6A83;
@@ -301,8 +299,6 @@ h2{
 
 .beschrijving{ border-bottom: 1px solid #CBDEF4; }
 
-
-
 @media screen and (min-width: 1000px){
     .undertitle{ grid-template-columns: repeat(3,1fr); }
     .beschrijving{border-bottom: none;}
@@ -360,7 +356,6 @@ h2{
 
 /* Detail stijlen------------------------------------------------------------------------------------------------------------------------------------------------------ */
 
-
 .detail img{
     width: 90%;
     margin: 0 auto;
@@ -370,7 +365,6 @@ h2{
     text-align: center;
     font-size: 1.5rem;
 }
-
 
 .detail p{
     padding: 1em;
@@ -627,7 +621,6 @@ strong{ font-weight: 600; }
 #loc_pos_id { width: 25%; }
 #cev_cat_id { width: 30%; }
 
-
 #eve_minprijs,
 #eve_maxprijs,
 #eve_begindatum,
@@ -659,13 +652,11 @@ strong{ font-weight: 600; }
     margin: 1em 0;
 }
 
-
 .checkbox input {
     width: 20px;
     padding: 0;
     margin: 0;
 }
-
 
 .check { margin: .5em 0; }
 
