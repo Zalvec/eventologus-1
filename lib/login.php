@@ -21,10 +21,10 @@ if ( $buttonvalue == "Log in" )
     //Afhankelijk van of het wachtwoord juist is wordt een message weergegeven
     if ( $login_ok )
     {
-        $_SESSION['msg'] = "Welkom, U bent ingelogd!";
+        $_SESSION['user'] = $row;
+        $_SESSION['msg'] = "Welkom ". $_SESSION['user']['use_voornaam']."!";
         session_start();
         header('Location: ../beheer.php');
-        $_SESSION['user'] = $row;
     }
     else
     {

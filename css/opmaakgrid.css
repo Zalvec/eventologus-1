@@ -245,6 +245,7 @@ main h2{
 
 .contcontainer{
     margin-top: 1em;
+    width: 100%;
 }
 
 .contdetail{
@@ -262,6 +263,7 @@ h2{
     background: #CBDEF4;
     padding: 1em;
     line-height: 30px;
+    width: 100%;
 }
 
 .content a img{
@@ -370,9 +372,9 @@ h2{
     padding: 1em;
     line-height: 25px;
     text-align: center;
+    word-wrap: break-word;
 }
 
-.detail p:first-of-type{ padding: 1em 0; }
 
 .date{padding: 0}
 
@@ -399,7 +401,7 @@ h2{
 
 .social{
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 2em;
     text-align: center;
     max-width: 100%;
@@ -442,6 +444,8 @@ h2{
     padding: 1em 0;
 }
 
+.contcontainerform.content{width: 60%;}
+
 .contactform .invul{
     margin-top: 1em;
 }
@@ -468,6 +472,8 @@ h2{
         width: 40%;
         margin: 2em auto;
     }
+
+    .social{grid-template-columns: repeat(6, 1fr);}
 }
 
 @media screen and (min-width: 1000px){
@@ -584,8 +590,8 @@ h2{
 .invul #display {
     margin: 1em 0;
     border-radius: 5px;
-    height: 400px;
-    width: 400px;
+    height: 250px;
+    width: 250px;
     cursor: pointer;
 }
 
@@ -695,10 +701,12 @@ strong{ font-weight: 600; }
     margin: 1em 5em 0 5em;
 }
 
+
 .evenement_aanmaken:hover {
     color: #5A6A83;
     background: #cbdef4;
 }
+
 
 @media screen and (min-width: 1000px) {
     .evenement_aanmaken {
@@ -712,17 +720,22 @@ strong{ font-weight: 600; }
         right: 75px;
     }
 
+    .invul #display{
+        height: 400px;
+        width: 400px;
+    }
+
     .rest{
         min-width: 752px;
         padding-left: 1em;
     }
+
 
     .beheer{
         display: flex;
         flex-direction: row;
         justify-content: center;
         background: #CBDEF4;
-        border-radius: 5px;
         padding: 1em;
     }
 
