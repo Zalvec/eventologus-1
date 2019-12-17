@@ -6,19 +6,19 @@
             <input type="hidden" id="formname" name="formname" value="contact_form">
             <div class="invul">
                 <label for="naam">Naam</label>
-                <input type="text" id="naam" name="naam" placeholder="Naam..." required>
+                <input type="text" id="naam" name="naam" placeholder="Naam..." required oninvalid="this.setCustomValidity('Gelieve je naam in te geven')" oninput="setCustomValidity('')">
             </div>
             <div class="invul">
                 <label for="voornaam">Voornaam</label>
-                <input type="text" id="voornaam" name="voornaam" placeholder="Voornaam..." required>
+                <input type="text" id="voornaam" name="voornaam" placeholder="Voornaam..." required oninvalid="this.setCustomValidity('Gelieve je voornaam in te geven')" oninput="setCustomValidity('')">
             </div>
             <div class="invul">
                 <label for="email">E-mailadres</label>
-                <input type="email" id="email" name="email" placeholder="voorbeeld@voorbeeld.be" required>
+                <input type="email" id="email" name="email" placeholder="voorbeeld@voorbeeld.be" required oninvalid="this.setCustomValidity('Gelieve je e-mailadres in te geven')" oninput="setCustomValidity('')">
             </div>
             <div class="invul">
                 <label for="vraag">Vraag</label>
-                <textarea name="vraag" id="vraag" cols="30" rows="10" placeholder="Vraag..." required></textarea>
+                <textarea name="vraag" id="vraag" cols="30" rows="10" placeholder="Vraag..." required oninvalid="this.setCustomValidity('Wat is je vraag?')" oninput="setCustomValidity('')"></textarea>
             </div>
             <div class="button">
                 <button type="submit" name="submit" value="submit">Stel je vraag</button>
