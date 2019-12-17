@@ -1,6 +1,7 @@
 <?php
 
     require_once "lib/autoload.php";
+    print LoadTemplate('zoeken');
 
     /* Titel printen */
     print "<h2 class=\"maintitle\">Uitgelicht</h2>";

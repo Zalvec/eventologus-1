@@ -51,6 +51,33 @@ main{padding-bottom: 110px;}
     margin: 0 auto;
 }
 
+/* Zoeken stijlen */
+
+.zoeken{
+    margin-top: 1em;
+    text-align: right;
+}
+
+.zoeken input{
+    border: none;
+    border-bottom: 1px solid #48556e;
+    height: 2rem;
+    outline: none;
+}
+
+.zoeken_button{
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.zoeken_button:hover{ cursor: pointer; }
+
+.zoeken_button .fas{
+    margin: 0;
+    font-size: 1.5rem;
+}
+
 /* Catnav stijlen------------------------------------------------------------------------------------------------------------------------------------------------------ */
 
 .categorieën_list{
