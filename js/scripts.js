@@ -1,12 +1,15 @@
+//Activeer op click
 function triggerClick() {
     document.querySelector('#eve_image').click();
 }
 
+//Hide masseges
 function Hide(HideID)
 {
     HideID.style.display = "none";
 }
 
+//Image weergeven bij opladen
 function displayImage(e) {
     if (e.files[0]) {
         var reader = new FileReader();
@@ -18,7 +21,7 @@ function displayImage(e) {
     }
 }
 
-
+//Input veld eve_prijs (min & max) weergeven of disablen bij check 'gratis'
 function disableMyText(){
     if(document.getElementById("check").checked == true){
         document.getElementById("eve_minprijs").disabled = true;
@@ -32,3 +35,19 @@ function disableMyText(){
         document.getElementById("eve_maxprijs").style.display ="inline";
     }
 }
+
+// Scroll To Top
+$(document).ready(function(){
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('#goToTop').fadeIn();
+        } else {
+            $('#goToTop').fadeOut();
+        }
+    });
+    var duration_ms = 800;
+    $('#goToTop').click(function () {
+        $('html, body').animate({ scrollTop: 0 }, 1000);
+        return false;
+    });
+});

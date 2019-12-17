@@ -54,6 +54,7 @@
     //Alle data wordt gereplaced in de categorie.html ingevuld en daarna wordt deze data gereplaced in de undertitle.html
     print ReplaceALLContent("categorie", "undertitle", $data);
 
+    print LoadTemplate("scroll_to_top");
     print LoadTemplate("basic_footer");
 
 ?>
