@@ -17,18 +17,18 @@
                 <fieldset>
                     <legend>Locatie</legend>
                     <label for="loc_straat" hidden>Straat</label>
-                    <input id="loc_straat" placeholder="Straat..." name="loc_straat" required oninvalid="this.setCustomValidity('Gelieve een straatnaam in te geven')" oninput="setCustomValidity('')">
+                    <input id="loc_straat" placeholder="Straat..." name="loc_straat">
                     <label for="loc_nr" hidden>Nummer</label>
                     <input id="loc_nr" placeholder="Huisnr..." name="loc_nr">
                     <select name="loc_pos_id" id='loc_pos_id' required oninvalid="this.setCustomValidity('Gelieve een postcode te selecteren')" oninput="setCustomValidity('')">
                         <?php
-                        $sql = "select pos_id, pos_code, pos_gemeente from postcode order by pos_code";
+                        $sql = "select pos_id, pos_code, pos_gemeente from postcode order by pos_gemeente";
                         $data_pos = GetData($sql);
                         ?>
                         <option value='' disabled selected>Selecteer de postcode..</option>
                         <?php
                         foreach ($data_pos as $array){
-                            $option = "$array[pos_code], $array[pos_gemeente]";
+                            $option = "$array[pos_gemeente], $array[pos_code]";
                             echo "<option value='$array[pos_id]'>$option</option>";}
                         ?>
                     </select>

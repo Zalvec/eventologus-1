@@ -13,7 +13,7 @@ function displayImage(e) {
 
         reader.onload = function(e) {
             document.querySelector('#display').setAttribute('src', e.target.result);
-        }
+        };
         reader.readAsDataURL(e.files[0]);
     }
 }
