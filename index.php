@@ -56,6 +56,8 @@
                 order by eve_begindatum
                 limit 3";
         $data = GetData($sql);
+
+        //Geeft 'gratis' weer als de eve_minprijs 0 is, anders krijg je een tekst met de eve_minprijs in
         foreach ($data as $row => $value) {
             if ($value['eve_minprijs'] == 0) {
                 $data[$row]['prijs'] = "Gratis";

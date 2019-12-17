@@ -19,9 +19,9 @@ require_once "lib/autoload.php";
             inner join postcode p on l.loc_pos_id = p.pos_id
             where use_email = '" . $_SESSION["user"]["use_email"] . "'
             order by eve_begindatum";
+        $data = GetData($sql);
 
         //Geeft 'gratis' weer als de eve_minprijs 0 is, anders krijg je een tekst met de eve_minprijs in
-        $data = GetData($sql);
         foreach ($data as $row => $value) {
             if ($value['eve_minprijs'] == 0) {
                 $data[$row]['prijs'] = "Gratis";

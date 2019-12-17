@@ -40,9 +40,9 @@
                             inner join categorie_evenement ce on evenement.eve_id = ce.cev_eve_id
                             inner join categorie c on ce.cev_cat_id = c.cat_id ".$where.
                             " order by eve_begindatum";
+    $data = GetData($sql);
 
     //Geeft 'gratis' weer als de eve_minprijs 0 is, anders krijg je een tekst met de eve_minprijs in
-    $data = GetData($sql);
     foreach ($data as $row => $value) {
         if ($value['eve_minprijs'] == 0) {
             $data[$row]['prijs'] = "Gratis";
