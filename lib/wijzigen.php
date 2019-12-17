@@ -26,7 +26,7 @@ if ( $formname == "eve_wijzig_form" )
         " eve_einddatum='" . $_POST['eve_einddatum'] . "' , " .
         " eve_opening='" . $_POST['eve_opening'] . "' , " .
         " eve_sluiting='" . $_POST['eve_sluiting'] . "' , " .
-        " eve_beschrijving='" . $_POST['eve_beschrijving'] . "'
+        "eve_beschrijving=\"". $_POST['eve_beschrijving'] . "\"
         where eve_id='" . $_POST['eve_id'] . "'";
     } else {
         $sql_eve = "UPDATE $tablename_eve SET " .
@@ -38,8 +38,8 @@ if ( $formname == "eve_wijzig_form" )
             " eve_opening='" . $_POST['eve_opening'] . "' , " .
             " eve_sluiting='" . $_POST['eve_sluiting'] . "' , " .
             "eve_image='" . $imagename . "' , " .
-            " eve_beschrijving='" . $_POST['eve_beschrijving'] . "' 
-        where eve_id='" . $_POST['eve_id'] . "'";
+            "eve_beschrijving=\"". $_POST['eve_beschrijving'] . "\"
+            where eve_id='" . $_POST['eve_id'] . "'";
     }
 
     //Als de postcode niet wordt aangepast wordt deze in de databank ook niet aangepast
