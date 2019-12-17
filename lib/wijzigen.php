@@ -52,10 +52,10 @@ if ( $formname == "eve_wijzig_form" )
 
 
     $sql_loc = "UPDATE $tablename_loc, $tablename_eve SET " .
-        " loc_straat='" . $_POST['loc_straat']. "' , " .
+        " loc_straat=\"" . $_POST['loc_straat']. "\" , " .
         " loc_nr='" . $_POST['loc_nr'] . "' , " .
         $sql_pos.
-        " loc_gebouw='" . $_POST['loc_gebouw'] . "' 
+        " loc_gebouw=\"" . $_POST['loc_gebouw'] . "\" 
         where loc_id='" . $_POST['loc_id'] . "'";
 
     //Afhankelijk van of de query goed wordt uitgevoerd een message weergeven

@@ -15,7 +15,7 @@
                 <input type="hidden" id="loc_id" name="loc_id" value="@@loc_id@@">
                 <div class="invul">
                     <label for="eve_naam">Naam</label>
-                    <input type="text" name="eve_naam" id="eve_naam" value="@@eve_naam@@" placeholder="Naam...">
+                    <input type="text" name="eve_naam" id="eve_naam" value="@@eve_naam@@" placeholder="Naam..." required>
                 </div>
                 <div class="invul">
                     <fieldset>
@@ -23,7 +23,7 @@
                         <label for="loc_straat" hidden>Straat</label>
                         <input id="loc_straat" placeholder="Straat..." name="loc_straat" value="@@loc_straat@@">
                         <label for="loc_nr" hidden>Nummer</label>
-                        <input id="loc_nr" placeholder="Huisnr..." name="loc_nr" value="@@loc_nr@@">
+                        <input id="loc_nr" placeholder="Huisnr..." name="loc_nr" value="@@loc_nr@@" required>
 
                         @@content@@
 
@@ -35,27 +35,27 @@
                     <fieldset>
                         <legend>Prijs (zonder €-teken)</legend>
                         <label for="eve_minprijs" hidden>Min. prijs</label>
-                        <input type="text" name="eve_minprijs" id="eve_minprijs" placeholder="Minimum..." value="@@eve_minprijs@@">
+                        <input type="text" name="eve_minprijs" id="eve_minprijs" placeholder="Minimum..." value="@@eve_minprijs@@" required>
                         <label for="eve_maxprijs" hidden>Max. prijs</label>
-                        <input type="text" name="eve_maxprijs" id="eve_maxprijs" placeholder="Maximum..." value="@@eve_maxprijs@@">
+                        <input type="text" name="eve_maxprijs" id="eve_maxprijs" placeholder="Maximum..." value="@@eve_maxprijs@@" required>
                     </fieldset>
                 </div>
                 <div class="invul">
                     <fieldset>
                         <legend>Datum</legend>
                         <label for="eve_begindatum" hidden>Begindatum</label>
-                        <input type="date" name="eve_begindatum" id="eve_begindatum" placeholder="Begindatum..." value="@@eve_begindatum@@">
+                        <input type="date" name="eve_begindatum" id="eve_begindatum" placeholder="Begindatum..." value="@@eve_begindatum@@" required>
                         <label for="eve_einddatum" hidden>Einddatum</label>
-                        <input type="date" name="eve_einddatum" id="eve_einddatum" placeholder="Einddatum..." value="@@eve_einddatum@@">
+                        <input type="date" name="eve_einddatum" id="eve_einddatum" placeholder="Einddatum..." value="@@eve_einddatum@@" required>
                     </fieldset>
                 </div>
                 <div class="invul">
                     <fieldset>
                         <legend>Tijd</legend>
                         <label for="eve_opening" hidden>Beginuur</label>
-                        <input type="time" name="eve_opening" id="eve_opening" placeholder="Beginuur..." value="@@eve_opening@@">
+                        <input type="time" name="eve_opening" id="eve_opening" placeholder="Beginuur..." value="@@eve_opening@@" required>
                         <label for="eve_sluiting" hidden>Einduur</label>
-                        <input type="time" name="eve_sluiting" id="eve_sluiting" placeholder="Sluituur..." value="@@eve_sluiting@@">
+                        <input type="time" name="eve_sluiting" id="eve_sluiting" placeholder="Sluituur..." value="@@eve_sluiting@@" required>
                     </fieldset>
                 </div>
                 <div class="invul">

@@ -15,7 +15,7 @@ if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
     move_uploaded_file($image['tmp_name'], $target);
 
     $sql_loc = "INSERT INTO locatie SET " .
-        "loc_gebouw='" . $_POST['loc_gebouw'] . "' , " .
+        "loc_gebouw=\"" . $_POST['loc_gebouw'] . "\" , " .
         "loc_straat=\"" . $_POST['loc_straat'] . "\" , " .
         "loc_nr='" . $_POST['loc_nr'] . "' ," .
         "loc_pos_id='" . $_POST["loc_pos_id"] . "';";
