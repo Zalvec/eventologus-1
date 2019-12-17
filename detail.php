@@ -17,6 +17,8 @@
                         inner join user u on evenement.eve_use_id = u.use_id
                         where eve_id = $id";
                 $data = GetData($sql);
+
+                //Geeft 'gratis' weer als de eve_minprijs 0 is, anders krijg je een tekst met de eve_minprijs in
                 foreach ($data as $row => $value) {
                     if ($value['eve_minprijs'] == 0) {
                         $data[$row]['prijs'] = "! Gratis !";

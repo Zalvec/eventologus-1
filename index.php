@@ -2,9 +2,6 @@
 
     require_once "lib/autoload.php";
 
-    //Een array met de 2 categorieën in die op de homepagina worden weergegeven. Kan gemakkelijk aangepast worden naar andere categorieën
-    $categorie = ["Conventies", "Festivals"];
-
     /* Titel printen */
     print "<h2 class=\"maintitle\">Uitgelicht</h2>";
 
@@ -31,6 +28,8 @@
 
     print "<h2 class=\"maintitle\">Categorieën</h2>";
 
+    //Een array met de 2 categorieën in die op de homepagina worden weergegeven. Kan gemakkelijk aangepast worden naar andere categorieën
+    $categorie = ["Conventies", "Festivals"];
     foreach ($categorie as $value) {
         //Haal met query de naam van de categorie uit db, en replace content uit temp 'titel' met de cat_naam
         $data1 = GetData("select cat_naam from evenement
@@ -56,6 +55,8 @@
                 order by eve_begindatum
                 limit 3";
         $data = GetData($sql);
+
+        //Geeft 'gratis' weer als de eve_minprijs 0 is, anders krijg je een tekst met de eve_minprijs in
         foreach ($data as $row => $value) {
             if ($value['eve_minprijs'] == 0) {
                 $data[$row]['prijs'] = "Gratis";

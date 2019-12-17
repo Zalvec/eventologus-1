@@ -1,6 +1,6 @@
 <?php
 
-    //Als de gebruiker als ingelogd is heeft hij geen toegang tot de pagina
+    //Als de gebruiker al ingelogd is, heeft hij geen toegang tot de pagina
     require_once "lib/autoload.php";
     if( isset($_SESSION['user'])){
         $_SESSION['msg'] =  "Je bent al ingelogd.";
