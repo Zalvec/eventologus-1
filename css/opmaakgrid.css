@@ -561,15 +561,13 @@ h2{
     color: #dee8f4;
 }
 
-.afbeelding,
-.toevoegen{
+.afbeelding {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
-.afbeelding img,
-.toevoegen img {
+.afbeelding img {
     width: 250px;
     border-radius: 5px;
     padding-top: 1em;
@@ -684,8 +682,34 @@ strong{ font-weight: 600; }
     background: darkgrey;
 }
 
+.evenement_aanmaken {
+    padding: .4em;
+    background: #5A6A83;
+    color: #CBDEF4;
+    border-radius: 5px;
+    transition: all 500ms ease;
+    text-align: center;
+    display: block;
+    margin: 1em 5em 0 5em;
+}
+
+.evenement_aanmaken:hover {
+    color: #5A6A83;
+    background: #cbdef4;
+}
 
 @media screen and (min-width: 1000px) {
+    .evenement_aanmaken {
+        padding: 1em;
+        background: #5A6A83;
+        color: #CBDEF4;
+        border-radius: 5px;
+        transition: all 500ms ease;
+        position: absolute;
+        top: 100px;
+        right: 75px;
+    }
+
     .rest{
         min-width: 752px;
         padding-left: 1em;
@@ -699,10 +723,8 @@ strong{ font-weight: 600; }
         border-radius: 5px;
         padding: 1em;
     }
-    .toevoegen{width: 30%;}
 
-    .afbeelding img,
-    .toevoegen img{
+    .afbeelding img {
         width: 300px;
         padding-left: .5em;
     }

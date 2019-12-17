@@ -1,4 +1,4 @@
-<h2 class="maintitle">Evenement aanmaken</h2>
+<h2 class="maintitle" id="evenement_aanmaken">Evenement aanmaken</h2>
 
 <section class="contcontainer beheer">
 

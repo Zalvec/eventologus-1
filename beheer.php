@@ -1,6 +1,9 @@
 <?php
 
 require_once "lib/autoload.php";
+
+    print LoadTemplate("button_naar_aanmaken");
+
     //Het is niet mogelijk als niet aangemelde gebruiker de beheerpagina te openen
     if(!isset($_SESSION['user'])){
         $_SESSION['msg'] = 'Log u eerst in';
