@@ -88,3 +88,10 @@ $('a[href*="#"]')
             }
         }
     });
+
+
+function Verberg() {
+    setTimeout(function () {
+        $('#message').fadeOut();
+    }, 2000);
+}

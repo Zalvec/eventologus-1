@@ -32,7 +32,7 @@
     $categorie = ["Conventies", "Festivals"];
     foreach ($categorie as $value) {
         //Haal met query de naam van de categorie uit db, en replace content uit temp 'titel' met de cat_naam
-        $data1 = GetData("select cat_naam from evenement
+        $data1 = GetData("select cat_naam, cat_id from evenement
                                 inner join locatie l on evenement.eve_loc_id = l.loc_id
                                 inner join postcode p on l.loc_pos_id = p.pos_id
                                 inner join categorie_evenement ce on evenement.eve_id = ce.cev_eve_id

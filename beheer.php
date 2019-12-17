@@ -21,7 +21,7 @@ require_once "lib/autoload.php";
             inner join locatie l on evenement.eve_loc_id = l.loc_id
             inner join postcode p on l.loc_pos_id = p.pos_id
             where use_email = '" . $_SESSION["user"]["use_email"] . "'
-            order by eve_begindatum";
+            order by eve_naam";
         $data = GetData($sql);
 
         //Geeft 'gratis' weer als de eve_minprijs 0 is, anders krijg je een tekst met de eve_minprijs in
