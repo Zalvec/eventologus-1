@@ -738,8 +738,19 @@ strong{ font-weight: 600; }
     }
 
     .social{ padding-top: 2em; }
+}
 
+/* Scroll To Top stijlen ------------------------------------------------------------------------------- */
 
+#goToTop{
+    cursor: pointer;
+    display: none;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 900;
+    font-size: 2rem;
+    padding: .2em .5em ;
 }
 
 /* Footer stijlen -------------------------------------------------------------------------------------- */

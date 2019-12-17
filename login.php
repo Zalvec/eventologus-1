@@ -7,6 +7,7 @@
         header("Location: beheer.php");
     } else{
         print LoadTemplate("login");
+        print LoadTemplate("scroll_to_top");
         print LoadTemplate("basic_footer");
     }
 

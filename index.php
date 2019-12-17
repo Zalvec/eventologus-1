@@ -67,7 +67,7 @@
         }
         print ReplaceALLContent("categorie", "undertitle", $data);
     }
-
+    print LoadTemplate("scroll_to_top");
     print LoadTemplate("basic_footer");
 
 ?>

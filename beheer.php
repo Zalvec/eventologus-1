@@ -48,6 +48,8 @@ require_once "lib/autoload.php";
         if ($_SESSION['user']["use_email"] == 'nathanz@nathan.be' or $_SESSION['user']["use_email"] == 'roel.van.bilzen@gmail.com') {
             print LoadTemplate("verwijder_gepasseerd");
         }
-        print LoadTemplate("basic_footer");
+
     }
+print LoadTemplate("scroll_to_top");
+print LoadTemplate("basic_footer");
 ?>
