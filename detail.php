@@ -1,8 +1,6 @@
 <?php
     require_once "lib/autoload.php";
 ?>
-    <!-- Content moet in deze section staan voor layout -->
-    <section class="contcontainer contdetail">
 
             <?php
 
@@ -36,7 +34,6 @@
 
         </div>
         </div>
-    </section>
 
 <?php
 
