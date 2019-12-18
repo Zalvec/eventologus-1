@@ -9,6 +9,7 @@ $pkey = $_POST["pkey"];
 //Als de gegevens uit het juiste formulier komen
 if ( $formname == "eve_wijzig_form" )
 {
+    //Image naam ophalen, timestamp voor zetten en doelmap bepalen
     $image = $_FILES['eve_image'];
     $imagename = time().'_'.$image['name'];
     $target = '../images/'.$imagename;
@@ -48,9 +49,6 @@ if ( $formname == "eve_wijzig_form" )
     } else {
         $sql_pos = " loc_pos_id='" . $_POST['loc_pos_id'] . "' , " ;
     }
-
-
-
     $sql_loc = "UPDATE $tablename_loc, $tablename_eve SET " .
         " loc_straat=\"" . $_POST['loc_straat']. "\" , " .
         " loc_nr='" . $_POST['loc_nr'] . "' , " .

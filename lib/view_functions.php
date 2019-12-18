@@ -111,6 +111,7 @@ function ReplaceALLContent($tempItems, $tempAll, $data){
     $template = LoadTemplate($tempItems);
     $content =  ReplaceContent($data, $template);
     $data = array("content" => $content);
+
     $template =  LoadTemplate("$tempAll");
     return ReplaceContentRow($data, $template);
 }

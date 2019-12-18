@@ -44,8 +44,10 @@ if ( $formname == "registration_form" AND $_POST['registerbutton'] == "Registree
 
     //Afhankelijk van of de query goe wordt uitgevoerd message weergeven
     if ( ExecuteSQL($sql) ){
-        $_SESSION['msg'] = "Bedankt voor uw registratie!" ;
-        header('Location: ../index.php');
+        if (ControleLoginWachtwoord($_POST['use_email'], $_POST['use_wachtwoord'])){
+            $_SESSION['msg'] = "Bedankt voor uw registratie! U bent nu aangemeld." ;
+            header('Location: ../index.php');
+        }
     }
     else {
         $_SESSION['msg'] = "Sorry, er liep iets fout. Uw gegevens werden niet goed opgeslagen";
