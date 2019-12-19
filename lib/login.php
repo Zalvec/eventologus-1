@@ -10,8 +10,8 @@ if ( $buttonvalue == "Log in" )
 
         //Functie ControleLoginWachtwoord gebruiken om het wachwoord te controleren
         if ( ControleLoginWachtwoord($_POST['use_email'], $_POST['use_wachtwoord']) ){
-            $_SESSION['msg'] = "Welkom ".$_SESSION['user']['use_voornaam'];
-            header('Location: ../index.php');
+            $_SESSION['msg'] = "Welkom ".$_SESSION['user']['use_voornaam']."!";
+            header('Location: ../beheer.php');
         }
         else
         {

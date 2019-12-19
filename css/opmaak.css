@@ -724,10 +724,7 @@ strong{ font-weight: 600; }
         width: 400px;
     }
 
-    .rest{
-        min-width: 752px;
-        padding-left: 1em;
-    }
+    .rest{ padding-left: 1em; }
 
 
     .beheer{
