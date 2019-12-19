@@ -118,11 +118,11 @@
 
             <div class="check">
                 <input type="checkbox" name="GDPR" id="GDPR" required oninvalid="this.setCustomValidity('Gelieve akkoord te gaan met de GDPR voorwaarden voor u het evement kan aanmaken')" oninput="setCustomValidity('')">
-                <label for="GDPR">Ik ga akkoord met de GDPR voorwaarden</label>
+                <label for="GDPR">Ik ga akkoord met de <a href="GDPR.php" title="" target="_blank">GDPR voorwaarden</a></label>
             </div>
             <div class="check">
                 <input type="checkbox" name="algemene_voorwaarden" id="algemene_voorwaarden" required oninvalid="this.setCustomValidity('Gelieve akkoord te gaan met onze algemene voorwaarden voor u het evement kan aanmaken')" oninput="setCustomValidity('')">
-                <label for="algemene_voorwaarden">Ik ga akkoord met de algemene voorwaarden</label>
+                <label for="algemene_voorwaarden">Ik ga akkoord met de <a href="algemene_voorwaarden.php" target="_blank" title="">algemene voorwaarden</a></label>
             </div>
 
             <div class="beheerbutton">
