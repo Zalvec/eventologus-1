@@ -26,7 +26,7 @@
     $data1 = array("content" => $content);
     print ReplaceContentRow($data1, $template);
     } else{
-        print 'Goed geprobeerd';
+        print 'Goed geprobeerd, Alexander.';
     }
 
     print LoadTemplate("basic_footer");
