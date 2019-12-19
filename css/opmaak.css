@@ -190,6 +190,7 @@ nav ul li a{
     margin: .5em;
     text-decoration: none;
     text-align: center;
+    transition: all 500ms ease;
 }
 
 nav#mainnav ul li a:hover{
@@ -757,6 +758,7 @@ strong{ font-weight: 600; }
         flex-direction: row;
         background: #CBDEF4;
         padding: 1em;
+        margin-top: 1em;
     }
 
     .detail .foto{

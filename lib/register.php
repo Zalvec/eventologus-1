@@ -8,7 +8,7 @@ $pkey = $_POST["pkey"];
 //Als de gegevens uit het juiste formulier komen
 if ( $formname == "registration_form" AND $_POST['registerbutton'] == "Registreer" )
 {
-    //controle of gebruiker al bestaat
+    //Controle of gebruiker al bestaat
     $sql = "SELECT * FROM user WHERE use_email='" . $_POST['use_email'] . "' ";
     $data = GetData($sql);
     if ( count($data) > 0 ) {
@@ -16,21 +16,21 @@ if ( $formname == "registration_form" AND $_POST['registerbutton'] == "Registree
         header('Location: ../register.php');
         die();
     }
-    //controle wachtwoord minimaal 8 tekens
+    //Controle wachtwoord minimaal 8 tekens
     if ( strlen($_POST["use_wachtwoord"]) < 8 ){
         $_SESSION['msg'] = "Uw wachtwoord moet minstens 8 tekens bevatten!";
         header('Location: ../register.php');
         die();
     }
 
-    //controle geldig e-mailadres
+    //Controle geldig e-mailadres
     if (!filter_var($_POST["use_email"], FILTER_VALIDATE_EMAIL)){
         $_SESSION['msg'] = "Ongeldig email formaat voor login";
         header('Location: ../register.php');
         die();
     }
 
-    //wachtwoord coderen
+    //Wachtwoord coderen
     $password_encrypted = password_hash ( $_POST["use_wachtwoord"] , PASSWORD_DEFAULT );
 
     //De gegevens met het gecodeerde wachtwoord in de user tabel zetten
@@ -47,6 +47,9 @@ if ( $formname == "registration_form" AND $_POST['registerbutton'] == "Registree
         if (ControleLoginWachtwoord($_POST['use_email'], $_POST['use_wachtwoord'])){
             $_SESSION['msg'] = "Bedankt voor uw registratie! U bent nu aangemeld." ;
             header('Location: ../index.php');
+        } else {
+            $_SESSION['msg'] = "Bedankt voor uw registratie!" ;
+            header('Location: ../login.php');
         }
     }
     else {

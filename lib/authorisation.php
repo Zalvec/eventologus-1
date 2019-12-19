@@ -1,7 +1,7 @@
 <?php
 function ControleLoginWachtwoord( $login, $paswd )
 {
-    //gebruiker opzoeken ahv zijn login (e-mail)
+    //Gebruiker opzoeken ahv zijn login (e-mail)
     $sql = "SELECT * FROM user WHERE use_email='" . $login . "' ";
     $data = GetData($sql);
     //Als er een gebruiker is met deze email
@@ -9,7 +9,7 @@ function ControleLoginWachtwoord( $login, $paswd )
     {
         //De gegevens van de gebruiker uit de data halen
         $row = $data[0];
-        //password controleren
+        //Wachtwoord controleren
         if ( password_verify( $paswd, $row['use_wachtwoord'] ) ) $login_ok = true;
     }
 

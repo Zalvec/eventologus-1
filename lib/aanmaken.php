@@ -7,6 +7,8 @@ $pkey = $_POST["pkey"];
 
 // Als de ingestuurde data van het juiste formulier komen
 if ($formname == "eve_form" AND $_POST['aanmaakbutton'] == "Aanmaken") {
+
+    //Timestamp toevoegen aan de naam van image en de locatie voor opslagen bepalen
     $image = $_FILES['eve_image'];
     $imagename = time().'_'.$image['name'];
     $target = '../images/'.$imagename;

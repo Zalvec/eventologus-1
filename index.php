@@ -2,7 +2,8 @@
 
     require_once "lib/autoload.php";
     print LoadTemplate('zoeken');
-    /* Titel printen */
+
+    // Titel printen
     print "<h2 class=\"maintitle\">Uitgelicht</h2>";
 
     // SQL om 3 random evenementen uit de databank te halen

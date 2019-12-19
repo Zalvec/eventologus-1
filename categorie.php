@@ -22,10 +22,11 @@
 
     //Als $where leeg is, is er geen specifieke categoriepagina geladen, dus kunnen alle evenementen geladen worden
     if (empty($where)){
-        $data = array();
-        $data['cat_naam'] = 'Alle';
-        $templateTitel = LoadTemplate('titel');
-        print ReplaceContentRow($data, $templateTitel);
+        ?>
+        <div class="titel">
+        <a href="categorie.php"><h2>Alle</h2></a>
+        </div>
+<?php
     //Anders worden enkel de evenementen van deze categorie geladen
     } else {
         $data = GetData("select * from categorie 
